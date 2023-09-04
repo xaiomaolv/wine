@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "commonImage": "/components/commonImage/commonImage",
+    "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
+    "van-cell": "/miniprogram_npm/@vant/weapp/cell/index"
+  }
+}

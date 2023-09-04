@@ -1,0 +1,31 @@
+<!--pages/detail/components/scroll_x_wine/scroll_x_wine.wxml-->
+<!-- 最佳酒款 -->
+<wxs module="filters" src="../../../../../utils/filters.wxs"></wxs>
+<view wx:if="{{wineryTopList.length > 0}}">
+  <view class="hot-card-bg">
+    <view style="color: white;display: flex;justify-content: center;align-items: center;padding-top: 40rpx;font-size: 34rpx;font-weight: 600;">此酒庄最佳酒款</view>
+  </view>
+  <view class="flex-row">
+    <scroll-view scroll-x class="scroll_w" style="margin-top: -180rpx;">
+      <view wx:for="{{wineryTopList}}" wx:key="index" class="scroll-box" bindtap="toDetail" data-item="{{item}}">
+        <view class="hot-rate tx-ct">
+          <view style="margin-top: 30rpx; line-height: 62rpx;">
+            <view class="ft-se-34">{{filters.toFix1(item.rate)}}</view>
+          </view>
+          <view>
+            <starRate remark_num="{{item.rate}}" iconStyle="width:34rpx;height:34rpx"></starRate>
+          </view>
+          <view class="ft-se-14 mg-tp-3">{{ item.numOfRate || 0}}条评分</view>
+        </view>
+        <commonImage imgUuid="{{item.wineImg}}" imgUrl="{{item.wineImgUrl}}" mode="aspectFit" styleStr="width: 200rpx;height: 480rpx;" width="200" height="480"></commonImage >
+        <!-- <image class="scroll_wine_image" src="{{item.imgzip ? item.imgzip+'?x-oss-process=image/format,webp/crop,image/resize,p_50' : ''}}" mode="aspectFit" /> -->
+        <!-- <image class="scroll_wine_image" src="{{imgUrl}}{{item.wineImg}}" mode="aspectFit" /> -->
+        <view class="tx-ct mg-tp-10" style="position: absolute;width: 280rpx;">
+          <view class="clr-999 ft-se-14">{{item.wineryName}}</view>
+          <view class="bt_txet two_ellipsis">{{item.wineName}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="tx-ct clr-pri mg-tp-20 pd-tp-10 bd-tp" bindtap="toDownApp">此酒庄全部酒款</view>
+</view>

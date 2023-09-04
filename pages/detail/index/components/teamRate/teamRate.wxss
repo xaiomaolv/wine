@@ -1,0 +1,109 @@
+/* pages/detail/index/components/teamRate/teamRate.wxss */
+/* 权威评价 */
+.log_btn {
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--btn-bg);
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  padding-left: 18rpx;
+  padding-right: 18rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28rpx;
+  /* line-height: 1.8; */
+}
+.mg-team{
+  margin: 40rpx 30rpx 0 30rpx;
+}
+.bd-bt-team{
+  border-bottom: 2rpx solid #EEEEEE;
+  margin: 20rpx 0;
+}
+
+.bd-bt-team:last-child {
+  border-bottom: none;
+  margin: 0;
+}
+/* 行式弹性盒子 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+.clr-5F {
+  color: #5F5F5F
+}
+.clr-999 {
+  color: #999;
+}
+.ft-se-12 {
+  font-size: 24rpx;
+}
+.ft-se-16 {
+  font-size: 32rpx;
+}
+.ft-se-14 {
+  font-size: 28rpx;
+}
+.flex-col-12 {
+  width: 50%;
+}
+.flex-col-24 {
+  width: 100%;
+}
+.mg-10-0{
+  margin: 20rpx 0;
+}
+.mg-tp-10{
+  margin-top: 20rpx;
+}
+.mg-tb-10{
+  margin: 20rpx 0;
+}
+.mg-lt-10{
+  margin-left: 20rpx;
+}
+.pd-tp-10{
+  padding-top: 20rpx;
+}
+.tx-ct {
+  text-align: center;
+}
+.tx-rt {
+  text-align: right;
+}
+.flex-row-center{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+/* 字体颜色 */
+.clr-pri {
+  color: #B81728;
+}
+/* 字体加粗 */
+.ft-bd {
+  font-weight: bold;
+}
+.clr-1B{
+  color: #1B1B1B;
+}
+.clr-9797 {
+  color: #979797;
+}
+.bd-tp {
+  border-top: var(--border-color) solid 1px;
+}
+.mg-team-pop{
+  margin: 90rpx 30rpx 0 30rpx;
+}

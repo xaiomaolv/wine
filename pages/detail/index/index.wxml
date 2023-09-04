@@ -1,0 +1,342 @@
+<!--pages/detail/index/index.wxml-->
+<wxs module="filters" src="../../../utils/filters.wxs"></wxs>
+<!-- d顶部返回 -->
+<topNav class="nav_wrap" isShowNav="{{isShowNav}}" isShow="{{isShowBtn}}" navTitle="{{navTitle}}" backgroundColor="{{backgroundColor}}" isWhite="{{isWhite}}" titleColor="{{titleColor}}" bind:handleBackClick="handleBackClick"></topNav>
+<!-- navtab吸顶 -->
+<view class="navigateBox" style="top:{{navBarHeight}}px;margin-top: {{isHidden ? navBarHeight :0}}px;" wx:if="{{isHidden}}">
+  <navTabs class="navtabs" wineVOList="{{detailInfo.wineVOList ? detailInfo.wineVOList : []}}" active="{{activeIndex}}" customStyle="width:560rpx;margin:auto;" bind:change="jumpTo"></navTabs>
+</view>
+<scroll-view style="width:100%;height:100vh;" enable-passive show-scrollbar="{{false}}" scroll-into-view="{{toView}}" scroll-y="{{isScroll}}" scroll-with-animation="true" enhanced="true" bindscroll="toScroll" binddragend="endScroll" scroll-top="{{scrollTop}}">
+  <!-- <scroll-view style="width:100%;height:100vh;padding-top: {{isHidden ? navBarHeight :0}}px;" enable-passive show-scrollbar="{{false}}" scroll-into-view="{{toView}}" scroll-y="{{isScroll}}" scroll-with-animation="true" enhanced="true" bindscroll="toScroll" binddragend="endScroll"> -->
+  <view style="height: 1070rpx;background-color: #fff;">
+    <view class="header">
+      <image src="{{wine_bg.url? wine_bg.url+'?width=160&height=200&webp=1' : ''}}" class="header-bg" />
+      <view style="height: {{navObj}}px;padding-top: {{navTop}}px;padding-right:{{navObjWidth}}px;">
+        <view class="head-back flex-row" style="height: {{navObj}}px;" bindtap="handleBackClick">
+        </view>
+      </view>
+    </view>
+    <view class="flex-row flex-col-24" style="background: white;">
+      <view class="flex-col-10 mg-lt-10" style="z-index: 88;display: flex;">
+        <view hidden="{{!showBottle}}" class="{{isWineBottle == true ? '' : 'wine_img_no'}}" style="pointer-events: none;">
+          <image class="{{isWineBottle == false ?'wine_img_no_img' : 'wine_img'}}" style="z-index: 88;" src="{{detailInfo.wineImgUrl ? detailInfo.wineImgUrl+'?width=400&height=960&webp=1' : imgUrl+detailInfo.wineImg}}" mode="{{isWineBottle == false ?'aspectFill' : 'aspectFit'}}" bindload="onImgLoad" />
+        </view>
+        <!-- <image style="position: absolute;top: 700rpx;" class="takePhoto_img" src="{{scanImg ? scanImg+'?x-oss-process=image/format,webp/crop,image/resize,p_45' : ''}}" mode="aspectFill" bindtap="toscanImg"/> -->
+        <image style="position: absolute;top: 700rpx;" class="takePhoto_img" src="{{scanImg ? scanImg+'?width=160&height=200&webp=1' : imgUrl+scannedPhotoUUID}}" mode="aspectFill" bindtap="toscanImg"/>
+      </view>
+      <!-- 识别酒款弹窗 -->
+      <scanImg class="scanImgCom" scanImg="{{scanImg}}" scannedPhotoUUID="{{scannedPhotoUUID}}" scanDate="{{scanDate}}"></scanImg>
+      <view class="flex-col-14 tx-ct">
+        <!-- 评分 -->
+        <view class="hot-rate">
+          <view style="margin-top: 30rpx; line-height: 62rpx;">
+            <view class="ft-se-34" wx:if="{{detailInfo.rate}}">{{filters.toFix1(detailInfo.rate)}}</view>
+            <view class="ft-se-34" wx:else>0.0</view>
+          </view>
+          <view>
+            <starRate wx:if="{{detailInfo.rate}}" remark_num="{{detailInfo.rate}}" iconStyle="width:34rpx;height:34rpx"></starRate>
+            <starRate wx:else remark_num="0" iconStyle="width:34rpx;height:34rpx"></starRate>
+          </view>
+          <view class="ft-se-14 mg-tp-3">{{ detailInfo.numOfRate || 0}}条评分</view>
+        </view>
+        <!-- 识别照片 -->
+        <!-- <view class="{{scanImg ? 'takePhoto' : 'takePhoto1'}}">
+          <image class="takePhoto_img" wx:if="{{scanImg}}" src="{{scanImg ? scanImg+'?x-oss-process=image/format,webp/crop,image/resize,p_50' : ''}}" mode="aspectFit" />
+        </view>
+        <view class="clr-pri mg-tp-5" bindtap="toDownApp" wx:if="{{scanImg}}">
+          <van-icon name="edit" color="#B81728" size="15" class="mg-rt-5" />
+          <text class="ft-se-12">编辑</text>
+        </view> -->
+        <view class="mg-tp-30" wx:if="{{detailInfo.userFitPoint > 0}}">
+          <view class="Group">
+            <view class="pill"><text class="ft-bd-600 ft-se-20">{{filters.toInt(detailInfo.userFitPoint)}}</text><text class="ft-se-10">%</text>
+            </view>
+            <view class="sour"></view>
+            <view class="sweet"></view>
+            <view class="Umami"></view>
+            <view class="bitter"></view>
+            <view class="Salty"></view>
+          </view>
+          <view class="ft-se-14">与您的匹配度</view>
+        </view>
+
+        <!-- 相似酒款 -->
+        <view class="{{detailInfo.userFitPoint <= 0 ? 'mg-tp-60' : ''}}"></view>
+        <similarWine wx:if="{{scannedPhotoUUID}}" scanImg="{{scanImg}}" scanDate="{{scanDate}}" wineUUID="{{wineUUID}}" scannedPhotoUUID="{{scannedPhotoUUID}}" detailInfo="{{detailInfo}}"></similarWine>
+        <!-- 参考价格 -->
+        <view class="{{detailInfo.userFitPoint <= 0 && scannedPhotoUUID=='' ? 'takePhoto1' : ''}}"></view>
+        <view class="btn_mini_price">¥<text class="ft-se-16 mg-lt-5 ft-bd-500">{{detailInfo.winePrice}}</text></view>
+        <view class="ft-se-12 clr-9797">*价格仅供参考</view>
+      </view>
+    </view>
+  </view>
+  <!-- 添加评分 -->
+  <view id="rateCard">
+    <view class="rateCard">
+      <view class="flex-row flex-col-24">
+        <view class="van_btn row" bindtap="toDownApp">
+          <image src="../img/mate/star.png" mode="aspectFit" />
+          <view class="ft-se-16 mg-lt-5">添加你的评分</view>
+        </view>
+        <image class="circles" src="../img/mate/1.png" style="width: 37rpx;height: 37rpx;" mode="aspectFit" bindtap="toDownApp"></image>
+        <!-- <image class="circle mg-lt-10" src="/img/mate/1_1.png" style="width: 40rpx;height: 40rpx;" mode="aspectFit"></image> -->
+        <image class="circles" src="../img/mate/2.png" style="width: 37rpx;height: 37rpx;" mode="aspectFit" bindtap="toScan"></image>
+        <image class="circle" src="../img/mate/3.png" style="width: 44rpx;height: 44rpx;" mode="aspectFit" bindtap="toDownApp"></image>
+      </view>
+      <!-- 酒名 -->
+      <view class="mg-10-15">
+        <view class="ft-se-18 ft-bd-400">{{detailInfo.wineName}}</view>
+        <view class="clr-999 ft-se-14 flex-row">
+          <image wx:if="{{detailInfo.countryCode}}" src="/img/countries/{{detailInfo.countryCode}}.svg" mode="aspectFit" class="nationFlag" />
+          <view class="mg-lt-5" wx:if="{{detailInfo.countryName || detailInfo.regionName || detailInfo.wineryName}}">来自{{detailInfo.countryName}}·{{detailInfo.regionName}}·{{detailInfo.wineryName}}</view>
+          <view wx:else>产地未知</view>
+        </view>
+        <view class=" clr-999 ft-se-12">{{detailInfo.wineEnName}}</view>
+      </view>
+      <!-- 推荐年份 -->
+      <view class="mg-10-15">推荐年份</view>
+      <recomeYear hidden="{{detailInfo}}" newYear="{{detailInfo.newYear ? detailInfo.newYear : []}}" wineMoreYearList="{{detailInfo.wineMoreYearList ? detailInfo.wineMoreYearList : []}}"></recomeYear>
+    </view>
+    <!-- 编者注 -->
+    <view wx:if="{{wineEditorNotes.length > 0}}" class="mg-tp-15 editCard" wx:for="{{wineEditorNotes}}" wx:key="index">
+      <view class="pd-tb-10 tx-ct">编者注</view>
+      <view class="mg-10-15">
+        <view class="content-wrap">
+          <view class="content {{ isFold ? isOpen ? '' : 'fold' : ''}}">
+            <towxml class="" nodes="{{articleEdit}}" />
+          </view>
+          <view wx:if="{{isFold}}" class="more" bindtap="open">{{ isOpen ? '收起' : '展开阅读'}}</view>
+        </view>
+      </view>
+      <view class="tx-ct">
+        <image src="{{imgUrl}}{{item.editorAvatar}}+'?width=50&height=50&webp=1'" mode="aspectFit" style="height: 100rpx;width: 100rpx;border-radius: 50%;" />
+        <view class="ft-se-12 mg-tp-5"> {{item.editorName}} </view>
+        <view class="ft-se-12 clr-999"> {{item.editorTitle}} </view>
+      </view>
+    </view>
+  </view>
+  <!-- 简介 -->
+  <view id="blurbCard">
+    <view class="blurbCard">
+      <view class="ft-bd mg-10-15 pd-tb-10 tx-ct ft-se-17">简介</view>
+      <view wx:if="{{detailInfo.lightSpot.length > 0}}">
+        <view class="tx-ct" wx:if="{{detailInfo.lightSpot.length > 0}}">
+          <view wx:for="{{blurbHight}}" wx:key="index" bindtap="handleClick" data-blurbid="{{index}}" class="btn_mini_height {{blurbCurrent == index?'active':''}}" style="margin-right: 20rpx;">
+            {{item}}
+          </view>
+        </view>
+        <!-- 亮点 -->
+        <view wx:if="{{blurbCurrent == 0}}">
+          <view class="flex-row mg-light bd-bt-blurb ft-se-16" wx:for="{{detailInfo.lightSpot}}" wx:key="index">
+            <image src="{{item.img}}" mode="aspectFit" class="blud_logo" />
+            <text class="mg-0-15 ft-se-14">{{item.lightDes}}</text>
+          </view>
+        </view>
+        <!-- 标签 -->
+        <view wx:if="{{blurbCurrent == 1}}">
+          <blurbLabel detailInfo="{{detailInfo}}"></blurbLabel>
+        </view>
+      </view>
+      <view wx:else>
+        <blurbLabel detailInfo="{{detailInfo}}"></blurbLabel>
+      </view>
+    </view>
+    <!-- 口味特征 -->
+    <view class="flavourCard">
+      <flavourCard wineCharacteristicsVO="{{wineCharacteristicsVO}}"></flavourCard>
+      <!-- 风味描述 -->
+      <view wx:if="{{flavorsWebVOS.length > 0}}">
+        <view class="flex-space mg-10-15 pd-tp-10">
+          <view class="clr-5F">风味描述
+            <!-- <text class="ft-se-14 clr-999">11143条评论</text> -->
+          </view>
+          <view class="ft-se-12 clr-999 clickRange" bindtap="toDownApp">
+            点击图标评价
+          </view>
+        </view>
+        <view class="{{!isShowBlurb? 'hiddenmore' : 'showmore'}}">
+          <view class="flex-row mg-0-15 {{index>2 ? 'more-item' : ''}}" wx:for="{{flavorsWebVOS}}" wx:key="index">
+            <image src="../img/flavors/{{item.uuid}}.svg" mode="aspectFit" class="blud_logo" />
+            <view class="flex-col mg-0-15 bd-bt-flavour pd-tb-10">
+              <view> {{item.description}}</view>
+              <view class="ft-se-12 clr-999"> <text style="color: {{item.color}};">{{item.count}}</text>人描述有<text style="color: {{item.color}};">{{item.name}}</text></view>
+            </view>
+          </view>
+          <view wx:if="{{flavorsWebVOS.length > 3}}" class="tx-ct clr-pri mg-tp-20 pd-tp-10 bd-tp" bindtap='listToggle'>{{ isShowBlurb ? '收起' : '查看更多' }}</view>
+        </view>
+      </view>
+
+    </view>
+    <!-- 我的日志 -->
+    <view>
+      <!-- <view class=" mg-10-15 pd-tp-10">我的日志</view> -->
+      <logCard hidden="{{wineUUID}}" wineUUID="{{wineUUID}}"></logCard>
+    </view>
+  </view>
+  <!-- 评价 -->
+  <view id="evaluateCard" class="evaluateCard">
+    <view class="ft-bd mg-10-15 pd-tb-10 tx-ct ft-se-17">评价</view>
+    <view class=" mg-10-15 pd-tp-10 clr-5F">评分排名</view>
+    <!-- 评分排名 -->
+    <view style="width: 100%; height: 100%;padding-bottom: 30rpx;">
+      <rateEchart wx:if="{{isStartRate}}" leftText="全球范围" rightText="{{detailInfo.rankMap.regionName}}" leftCount="{{detailInfo.rankMap.topWorldRanking}}" rightCount="{{detailInfo.rankMap.topRegionRanking}}" right="{{detailInfo.rankMap.regionName =='' ? false : true}}"></rateEchart>
+    </view>
+    <!-- 价值体系 -->
+    <view wx:if="{{detailInfo.wineLevel}}">
+      <view class=" mg-20-15 clr-5F">价值体系</view>
+      <view>
+        <guage wineLevel="{{detailInfo.wineLevel}}" wineLevelDes="{{detailInfo.wineLevelDes}}"></guage>
+      </view>
+    </view>
+
+    <!--点评笔记  -->
+    <view wx:if="{{commentInfo.referenceList.length > 0 || commentInfo.newList.length > 0 || commentInfo.friendList.length > 0}}">
+      <view class="mg-20-15">
+        <view class="flex-row mg-tp-35">
+          <view class="flex-col-12 clr-5F">点评笔记</view>
+          <view wx:if="{{commentInfo.userRatedTotal > 0}}" class="clr-999 ft-se-12 flex-col-24 tx-rt">{{commentInfo.userRatedTotal}}条评论</view>
+        </view>
+        <view class="tx-ct mg-tp-20">
+          <view wx:for="{{evaluateHight}}" wx:key="index" bindtap="evaluateBtnClick" data-evaluateid="{{item.type}}" class="btn_mini_height {{evaluateCurrent == item.type?'active':''}}" style="margin-right: 20rpx;">
+            {{item.name}}
+          </view>
+        </view>
+        <view wx:if="{{evaluateCurrent == 0}}">
+          <commentInfo commentInfoList="{{commentInfo.referenceList}}"></commentInfo>
+        </view>
+        <view wx:if="{{evaluateCurrent == 1}}">
+          <commentInfo commentInfoList="{{commentInfo.newList}}"></commentInfo>
+        </view>
+        <view wx:if="{{evaluateCurrent == 2}}">
+          <commentInfo commentInfoList="{{commentInfo.friendList}}"></commentInfo>
+        </view>
+      </view>
+      <view class="tx-ct clr-pri mg-tp-20 pd-tp-10 bd-tp" wx:if="{{commentInfo}}" bindtap="toDownApp">查看全部</view>
+    </view>
+    <!-- 权威评价 -->
+    <view wx:if="{{detailInfo.teamRateList.length > 0}}">
+      <teamRate detailInfo="{{detailInfo}}"></teamRate>
+    </view>
+    <!-- 评酒视频 -->
+    <view>
+      <!--视频播放器-->
+      <detailVideo class="" hidden="{{wineUUID}}" wineUUID="{{wineUUID}}"></detailVideo>
+    </view>
+  </view>
+
+  <!-- 赏酒攻略 -->
+  <view id="tasteCard">
+    <view class="tasteCard">
+      <view class="ft-bd mg-10-15 pd-tb-10 tx-ct ft-se-17">赏酒攻略</view>
+      <!-- 食物搭配 -->
+      <view class="mg-tb-15">
+        <view class="flex-space mg-10-15">
+          <view class="clr-5F">食物搭配
+            <!-- <text class="ft-se-14 clr-999">11143条评论</text> -->
+          </view>
+          <view class="ft-se-12 clr-pri clickRange" bindtap="toDownApp">
+            <van-icon name="edit" color="#B81728" />
+            我要推荐
+          </view>
+        </view>
+        <view class="flex-row mg-10-15 ft-se-12" wx:if="{{wineFoodsList.length > 0}}">
+          <view class="food-item tx-ct mg-tp-5" wx:for="{{wineFoodsList}}" wx:key="index" wx:if="{{index <= 2}}">
+            <view class="">
+              <view class="foodLogo" wx:if="{{item.isSysCommend == true}}">
+                <image src="../img/mate/logo.png" style="width: 10rpx;height: 18rpx;margin-top: -3rpx;" />
+                <text style="margin-left: 4rpx;">推荐</text>
+              </view>
+              <image src="../img/pairing/{{item.icon}}.svg" mode="" style="width: 50rpx;height: 50rpx;" />
+              <view class="mg-5">{{item.name}}</view>
+              <!-- <view class="mg-5 ft-se-10 clr-999">1288人喜欢</view> -->
+            </view>
+          </view>
+          <view class="food-item tx-ct flex-col" bindtap="toDownApp" wx:if="{{wineFoodsList.length > 3}}">
+            <van-icon name="more-o" color="#979797" size="14" />
+            <view class="pd-tp-5 clr-9797">更多({{wineFoodsList.length}})</view>
+          </view>
+        </view>
+        <view wx:else class="tx-ct clr-999">暂无推荐</view>
+      </view>
+      <!-- 醒酒时间 -->
+      <view class="mg-tb-15">
+        <decanteTime hidden="{{wineUUID}}" wineUUID="{{wineUUID}}"></decanteTime>
+      </view>
+      <!-- 推荐场合 -->
+      <view class="mg-tb-15">
+        <view class="flex-space mg-10-15">
+          <view class="clr-5F">推荐场合
+            <!-- <text class="ft-se-14 clr-999">11143条评论</text> -->
+          </view>
+          <view class="ft-se-12 clr-pri clickRange" bindtap="toDownApp">
+            <van-icon name="edit" color="#B81728" size="12" />
+            我要推荐
+          </view>
+        </view>
+        <view class="flex-row mg-10-15 ft-se-12" wx:if="{{detailInfo.wineOccasionList.length > 0}}">
+          <view class="recommend-flex tx-ct mg-tp-5" wx:for="{{detailInfo.wineOccasionList}}" wx:key="index" wx:if="{{index <= 2}}">
+            <view class="">
+              <view class="recommendLogo" wx:if="{{item.isSysCommend === true}}">
+                <image src="../img/mate/logo.png" style="width: 10rpx;height: 18rpx;margin-top: -4rpx;" />
+                <text style="margin-left: 4rpx;">推荐</text>
+              </view>
+              <view class="mg-5">{{item.name}}</view>
+              <!-- <view class="mg-5 ft-se-10 clr-999">1288人推荐</view> -->
+            </view>
+          </view>
+          <view class="recommend-flex tx-ct flex-col  mg-tp-5" wx:if="{{detailInfo.wineOccasionList.length > 3}}" bindtap="toDownApp">
+            <van-icon name="more-o" color="#979797" size="14" />
+            <view class="pd-tp-5 clr-9797">更多({{etailInfo.wineOccasionList.length}})</view>
+          </view>
+        </view>
+        <view wx:else class="tx-ct clr-999">暂无推荐</view>
+      </view>
+    </view>
+    <!-- 酿酒师笔记 -->
+    <view class="brewerCard" wx:if="{{detailInfo.wineMakerNote}}">
+      <view class="mg-10-15 pd-tp-10 ft-bd">酿酒师笔记</view>
+      <view class="tx-ind clr-666 ft-se-14 mg-10-15">
+        <text>{{detailInfo.wineMakerNote}}</text>
+      </view>
+    </view>
+    <!-- 酒庄 -->
+    <view class="wineryCard mg-bt-10" wx:if="{{detailInfo.wineCount > 0}}">
+      <view class="ft-bd-600 mg-10-15 pd-tp-10 tx-ct ft-se-17">酒庄</view>
+      <view bindtap="toDownApp">
+        <view class="ft-bd-500 tx-ct mg-bt-10">{{detailInfo.wineryName}}</view>
+        <view class="flex-row-center" style="line-height: 40rpx;">
+          <view class="ft-se-18 mg-rt-5">{{filters.toFix1(detailInfo.wineryRate)}}</view>
+          <view class="ft-se-12">
+            <starRate wx:if="{{detailInfo.wineryRate}}" remark_num="{{detailInfo.wineryRate}}" iconStyle="width:20rpx;height:20rpx"></starRate>
+            <view class="ft-se-12 clr-999 flex-row-center">{{detailInfo.wineryNumOfRate || 0}}条评论</view>
+          </view>
+          <view class="clr-999 ft-se-14 mg-lt-10">{{detailInfo.wineCount || 0}}款酒</view>
+        </view>
+        <view class="row mg-bt-20">
+          <view class="btn_mini_winery flag_btn row">
+            <image wx:if="{{detailInfo.countryCode}}" src="/img/countries/{{detailInfo.countryCode}}.svg" mode="aspectFit" class="nationFlag" />
+            <view class="mg-lt-5 clr-1B">{{detailInfo.countryName}}{{detailInfo.regionName}}</view>
+          </view>
+        </view>
+        <view class="mg-10-15 mg-bt-20" wx:if="{{locationMap.longitude != null}}" style="border-radius: 30rpx;">
+          <qqMap location="{{locationMap}}"></qqMap>
+        </view>
+        <view>
+          <view class="three_ellipsis ft-se-14 mg-10-15">
+            <text class="clr-5F">{{detailInfo.wineryDescription}}</text>
+          </view>
+          <view wx:if="{{detailInfo.wineryDescription}}" class="tx-ct clr-pri mg-tp-20 pd-tp-10 bd-tp mg-bt-20" bindtap="toDownApp">查看详情</view>
+        </view>
+      </view>
+      <!-- 最佳酒款 -->
+      <view class="">
+        <scroll_x wx:if="{{wineryId}}" class="mg-tp-10" wineryTopList="{{wineryTopList}}" wineryId="{{wineryId}}"></scroll_x>
+      </view>
+    </view>
+  </view>
+  <!-- 你可能还喜欢 -->
+  <view id="likeCard" class="likeCard" wx:if="{{detailInfo.wineVOList.length > 0}}">
+    <view class="ft-bd-600 mg-10-15 pd-tb-10 tx-ct ft-se-17">你可能还喜欢</view>
+    <likeCard detailInfo="{{detailInfo}}" imgUrl="{{imgUrl}}"></likeCard>
+  </view>
+</scroll-view>

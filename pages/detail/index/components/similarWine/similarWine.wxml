@@ -1,0 +1,12 @@
+<!--pages/detail/index/components/similarWine/similarWine.wxml-->
+<!-- 相似酒款 -->
+<view class="card" wx:if="{{similarList.length > 0}}">
+<!-- <view class="card"> -->
+  <view class="ft-se-14 clr-9797">相似酒款</view>
+  <scroll-view scroll-x class="scroll-view">
+    <view class="scroll_item" style="{{similarList.length==1 ? '' : 'left: 115rpx;'}}" wx:for="{{similarList}}" wx:key="index" bind:tap="toDetail" data-item="{{item.wineUUID}}">
+      <!-- <image src="{{item.imgzip ? item.imgzip+'?x-oss-process=image/format,webp/crop,image/resize,p_35' : ''}}" style="width: 100%;height: 100%;border-radius: 16rpx;" mode="aspectFit" /> -->
+      <commonImage imgUuid="{{item.wineImg}}" imgUrl="{{item.wineImgUrl}}" mode="aspectFit" styleStr="width: 100%;height: 100%;border-radius: 16rpx;" width="150" ></commonImage >
+    </view>
+  </scroll-view>
+</view>

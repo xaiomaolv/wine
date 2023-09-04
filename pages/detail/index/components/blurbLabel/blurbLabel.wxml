@@ -1,0 +1,58 @@
+<!--pages/detail/index/components/blurbLabel/blurbLabel.wxml-->
+<!-- 简介 -标签 -->
+<view>
+  <view class="mg-10-25 tx-ct ft-se-14">
+    <view wx:if="{{detailInfo.regionName}}" class="mg-5">
+      产区
+      <view class="row mg-5">
+        <view class="btn_mini_country  mg-bt-10" style="display: flex;align-items: center;">
+          <image wx:if="{{detailInfo.countryCode}}" src="/img/countries/{{detailInfo.countryCode}}.svg" mode="aspectFit" class="nationFlag" />
+          <view class="mg-lt-5">{{detailInfo.regionName}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="mg-5" wx:if="{{detailInfo.wineryName}}">
+      <view>酒庄</view>
+      <view class="btn_mini mg-5">
+        <view>{{detailInfo.wineryName}}</view>
+      </view>
+    </view>
+    <view class="mg-5" wx:if="{{detailInfo.style}}">
+      <view>风格</view>
+      <view class="btn_mini mg-5">
+        <view>{{detailInfo.style}}</view>
+      </view>
+    </view>
+    <view class="mg-5" style="display: flex;flex-direction: column;" wx:if="{{detailInfo.grapes.length>0}}">
+      <view>葡萄品种</view>
+      <view class="btn_mini mg-5" wx:for="{{detailInfo.grapes && detailInfo.grapes}}" wx:key="index">
+        <view>{{ item.grapesName || '-' }}</view>
+      </view>
+    </view>
+
+    <view class="flex-round mg-tp-15">
+      <view class="flex-col-12 {{detailInfo.alcohol ? 'bd-rt' : ''}}" wx:if="{{detailInfo.typeName}}">
+        <view>类型</view>
+        <view class="clr-5F ft-se-13">{{detailInfo.typeName}}</view>
+      </view>
+      <view class="flex-col-12" wx:if="{{detailInfo.alcohol}}">
+        <view>酒精度数</view>
+        <view class="clr-5F ft-se-13">{{detailInfo.alcohol}}%vol</view>
+      </view>
+    </view>
+    <view class="flex-round mg-tp-15">
+      <view class="flex-col-12 {{detailInfo.winePrice ? 'bd-rt' : ''}}" wx:if="{{detailInfo.weetness}}">
+        <view>甜度</view>
+        <view class="clr-5F ft-se-13">{{detailInfo.weetness}}</view>
+      </view>
+      <view class="flex-col-12" wx:if="{{detailInfo.winePrice}}">
+        <view>参考价格</view>
+        <view class="clr-5F ft-se-13">￥{{detailInfo.winePrice}}</view>
+      </view>
+    </view>
+    <view class="mg-tp-15" wx:if="{{detailInfo.flavor}}">
+      <view>风味</view>
+      <view class="ft-se-13">{{detailInfo.flavor}}</view>
+    </view>
+  </view>
+</view>

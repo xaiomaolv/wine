@@ -1,0 +1,22 @@
+<!--pages/detail/index/components/likeCard/likeCard.wxml-->
+<wxs module="filters" src="../../../../../utils/filters.wxs"></wxs>
+<!-- <view class="likeCard" wx:if="{{detailList.length > 0}}">
+  <view class="ft-bd-600 mg-10-15 pd-tb-10 tx-ct ft-se-17">你可能还喜欢</view> -->
+  <view class="gridLike">
+    <view class="itemLike flex-center" wx:for="{{detailInfo.wineVOList}}" wx:key="index" data-item="{{item}}" bindtap="toDetail">
+      <view style="height: 480rpx; width: 200rpx;">
+        <!-- <image src="{{item.imgzip ? item.imgzip+'?x-oss-process=image/format,webp/crop,image/resize,p_50' : ''}}" lazy-load="true" mode="aspectFit" style="width: 100%;height: 100%;" /> -->
+        <commonImage imgUuid="{{item.wineImg}}" imgUrl="{{item.wineImgUrl}}" mode="aspectFit" styleStr="width: 100%;height: 100%;" width="200" height="480"></commonImage >
+      </view>
+      <view class="clr-999 mg-10-15">{{item.wineryName}}</view>
+      <view class="two_ellipsis mg-0-15 li-hg-24">{{item.wineName}}</view>
+      <view class="tx-ct flex-row-center mg-tp-5">
+        <view class="ft-se-18 mg-rt-5">{{filters.toFix1(item.rate)}}</view>
+        <view class="flex-col">
+          <starRate remark_num="{{item.rate}}" iconStyle="width:20rpx;height:20rpx"></starRate>
+          <view class="ft-se-12 clr-999">{{item.numOfRate}}<text class="mg-lt-5">条评价</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+<!-- </view> -->

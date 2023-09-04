@@ -1,0 +1,24 @@
+<!--pages/detail/index/components/commentInfo/commentInfo.wxml-->
+<!-- 点评笔记 -->
+<wxs module="filters" src="../../../../../utils/filters.wxs"></wxs>
+<view>
+  <!-- <view class="mg-tp-10" wx:for="{{commentList}}" wx:key="index"> -->
+  <view class="mg-tp-10" wx:for="{{commentInfoList}}" wx:key="index">
+    <view class="flex-row">
+      <!-- <image src="{{imgUrl}}{{item.avatarUUID}}" mode="aspectFit" class="avator" /> -->
+      <commonImage imgUuid="{{item.avatarUUID}}" imgUrl="{{item.avatarUrl}}" mode="aspectFit" styleStr="height: 96rpx; width: 96rpx; border-radius: 50%;" width="100" height="100" ></commonImage >
+      <view class="flex-col mg-lt-10">
+        <view>{{item.username}}</view>
+        <view class="clr-999 ft-se-13">{{item.commentDate}}</view>
+      </view>
+    </view>
+    <view class="tx-lt mg-tp-5">
+    <view class="log_rate_v mg-rt-10">
+      <van-icon name="star" color="#FCB709" />
+        <text class="clr-rate ft-se-14 mg-lt-5 ft-bd">{{filters.toFix1(item.rate)}}</text>
+    </view>
+    <view class="log_btn">{{item.year}}</view>
+    </view>
+    <view class="ft-se-14 four_ellipsis">{{item.comment}}</view>
+  </view>
+</view>

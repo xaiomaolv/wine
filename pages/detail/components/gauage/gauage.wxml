@@ -1,0 +1,7 @@
+<!--components/gauage/gauage.wxml-->
+<view class="">
+  <view class="ec-container">
+    <ec-canvas class="gauage" canvas-id="echarts" id="echarts" ec="{{ecGauage}}"></ec-canvas>
+  </view>
+  <view class="desc_level">{{wineLevelDes}}</view>
+</view>

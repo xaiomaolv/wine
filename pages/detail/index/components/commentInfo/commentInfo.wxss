@@ -1,0 +1,131 @@
+/* pages/detail/index/components/commentInfo/commentInfo.wxss */
+.mg-tp-5 {
+  margin-top: 10rpx;
+}
+
+.mg-tp-10 {
+  margin-top: 20rpx;
+}
+
+.mg-lt-5 {
+  margin-left: 10rpx;
+}
+
+.mg-lt-10 {
+  margin-left: 20rpx;
+}
+
+.mg-rt-10 {
+  margin-right: 20rpx;
+}
+
+.clr-999 {
+  color: #999;
+}
+
+.ft-se-12 {
+  font-size: 24rpx;
+}
+
+.ft-se-13 {
+  font-size: 26rpx;
+}
+
+.ft-se-14 {
+  font-size: 28rpx;
+}
+
+.tx-lt {
+  text-align: left;
+}
+
+/* 字体加粗 */
+.ft-bd {
+  font-weight: bold;
+}
+
+/* 评分颜色 */
+.clr-rate {
+  color: #FCB709;
+}
+
+/* 4行文字换行 */
+.four_ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/* 头像大小 */
+.avator {
+  height: 96rpx;
+  width: 96rpx;
+  border-radius: 50%;
+}
+
+/* 行式弹性盒子 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+/* 列式弹性盒子 */
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.log_rate {
+  padding: 0 16rpx !important;
+  background-color: var(--rate-bg);
+  border-radius: 30rpx;
+}
+
+/* .log_btn {
+  padding: 0 20rpx !important;
+  background-color: var(--btn-bg);
+  border-radius: 30rpx;
+} */
+.log_rate_v {
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--rate-bg);
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28rpx;
+  line-height: 1.8;
+}
+
+.log_btn {
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--btn-bg);
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28rpx;
+  line-height: 1.8;
+}

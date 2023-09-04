@@ -1,0 +1,39 @@
+<!--pages/detail/index/components/logCard/logCard.wxml-->
+<wxs module="filters" src="../../../../../utils/filters.wxs"></wxs>
+<view class="logCard" wx:if="{{logList.scanCount > 0 || logList.shareVideoCount > 0}}">
+  <view class="mg-10-15 pd-tp-10">我的日志</view>
+  <view class="ft-se-14">
+    <view>
+      <van-cell is-link border="{{false}}" bindtap="toDownApp" wx:if="{{logList.scanCount > 0}}">
+        <view slot="title" class="clr-000">
+          拍照识别过{{logList.scanCount || 0}}次此款酒
+        </view>
+        <van-icon slot="icon" name="/img/mate/8.png" size="19" class="custom-icon" />
+      </van-cell>
+      <van-cell is-link border="{{false}}" bindtap="toDownApp" wx:if="{{logList.shareVideoCount > 0}}">
+        <view slot="title" class="clr-000">
+          视频分享过{{logList.shareVideoCount || 0}}次此款酒
+        </view>
+        <van-icon slot="icon" name="/img/mate/7.png" size="19" class="custom-icon" />
+      </van-cell>
+    </view>
+    <view wx:for="{{logList.list}}" wx:key="index" class="mg-10-15">
+      <view class="flex-row">
+        <!-- <image src="{{imgUrl}}{{item.avatarUUID}}" mode="aspectFit" class="avator" /> -->
+        <commonImage imgUuid="{{item.avatarUUID}}" imgUrl="{{item.avatarUrl}}" mode="aspectFit" styleStr="height: 96rpx; width: 96rpx; border-radius: 50%;" width="100" height="100" ></commonImage >
+        <view class="flex-col mg-lt-10">
+          <view>{{item.username}}</view>
+          <view class="clr-999 ft-se-13">{{item.commentDate}}</view>
+        </view>
+      </view>
+      <view class="tx-lt mg-tp-5">
+        <view class="log_rate_v mg-rt-10">
+          <van-icon name="star" color="#FCB709" />
+          <text class="clr-rate ft-se-14 mg-lt-5 ft-bd">{{filters.toFix1(item.rate)}}</text>
+        </view>
+        <view class="log_btn">{{item.year}}</view>
+      </view>
+      <view class="ft-se-14">{{item.comment}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+/* components/starRate/starRate.wxss */
+/* 评分 */
+.stars {
+  display: flex;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+.star {
+  position: relative;
+  margin-right: 4rpx;
+}
+/* 红色星星 */
+.star .icon_red {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  /* height: 30rpx; */
+  overflow: hidden;
+}
+/* 灰色星星背景 */
+.star .icon_grey {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.star .imageStar {
+  display: block;
+}

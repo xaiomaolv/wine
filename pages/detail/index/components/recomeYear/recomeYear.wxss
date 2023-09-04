@@ -1,0 +1,57 @@
+/* pages/detail/index/components/recomeYear/recomeYear.wxss */
+/* 字体大小 */
+.ft-se-10 {
+  font-size: 20rpx;
+}
+.ft-se-12 {
+  font-size: 24rpx;
+}
+.tx-ct{
+  text-align: center;
+}
+.clr-999 {
+  color: #999;
+}
+.clr-9797 {
+  color: #979797;
+}
+.pd-tp-5 {
+  padding-top: 10rpx;
+}
+/* 行式弹性盒子 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+/* 列式弹性盒子 */
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.mg-10-15 {
+  margin: 20rpx 30rpx;
+}
+.volume-item {
+  height: 120rpx;
+  margin-right: 25rpx;
+  border: 1rpx solid var(--border-color);
+  /* 计算每个元素的宽度：20px是前三个元素的间距（margin-right）和，除以4即为每个元素的宽度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  width: calc((100% - 25rpx) / 4);
+}
+
+/* 将下标是4的倍数元素的margin-right设置为0，即将每行最后一个元素的margin-right置0 */
+.volume-item:nth-of-type(4n+0) {
+  margin-right: 0;
+}

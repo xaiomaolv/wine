@@ -1,0 +1,721 @@
+/* pages/detail/index/index.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(242, 242, 242);
+  overflow-x: hidden;
+}
+
+.nav_wrap {
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  position: fixed;
+  width: 750rpx;
+}
+
+.navigateBox {
+  width: 100%;
+  position: sticky;
+  height: 92rpx;
+  background: #fff;
+  z-index: 8;
+  /* top:0rpx; */
+  left: 0rpx;
+  border-top: 2rpx solid #F2F2F2;
+
+}
+
+/*  去掉button的默认样式*/
+button {
+  background: transparent;
+  font-weight: normal;
+}
+
+button::after {
+  outline: none;
+  border: none;
+  display: none;
+}
+
+/*文本两端对齐*/
+.tx-jt {
+  display: inline-block;
+  text-align: justify;
+  vertical-align: top;
+}
+
+.clr-5F {
+  color: #5F5F5F
+}
+
+.mg-5 {
+  margin: 10rpx;
+}
+
+.mg-15 {
+  margin: 30rpx;
+}
+.mg-tp-60{
+  margin-top: 120rpx;
+}
+.mg-10-15 {
+  margin: 20rpx 30rpx;
+}
+
+.mg-20-15 {
+  margin: 40rpx 30rpx;
+}
+
+.mg-0-15 {
+  margin: 0 30rpx;
+}
+
+.mg-tb-15 {
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.mg-0-10 {
+  margin: 0 20rpx;
+}
+
+.mg-10-0 {
+  margin: 20rpx 0;
+}
+
+.mg-tp-20 {
+  margin-top: 20rpx;
+}
+
+.ft-bd-400 {
+  font-weight: 400;
+}
+
+/*button 按钮 mini*/
+.btn_mini {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #f8f8f8;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  line-height: 2.55555556;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26rpx;
+  line-height: 2.3;
+}
+
+.header {
+  width: 100%;
+  position: relative;
+  height: 440rpx;
+  background-color: white;
+}
+
+.header .header-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  clip-path: ellipse(95% 58% at 30% 35%);
+  background-color: #B81728;
+  /* clip-path: ellipse(90% 60% at 35% 35%); */
+}
+
+.topCard {
+  background-color: white;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.rateCard {
+  background-color: white;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 20rpx;
+}
+
+/* 酒瓶大小 */
+.wine_img {
+  width: 400rpx;
+  height: 960rpx;
+  /* top: -640rpx; */
+  top: 100rpx;
+  position: absolute;
+  /* left: 10rpx; */
+}
+
+.wine_img_no {
+  width: 320rpx;
+  height: 600rpx;
+  margin: -10rpx 30rpx 0 30rpx;
+  padding: 5rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid var(--border-color);
+  z-index: 88;
+}
+
+.wine_img_no_img {
+  width: 320rpx;
+  height: 600rpx;
+  border-radius: 20rpx;
+}
+
+/* 编者注 */
+.content-wrap {
+  position: relative;
+  margin-top: -40rpx;
+}
+
+.content {
+  background: #fff;
+  font-size: 24rpx;
+  padding: 0 0 30rpx 0rpx;
+  color: #535353;
+  line-height: 60rpx;
+  margin: 0 0 30rpx 0;
+  text-indent: 60rpx;
+}
+
+.more {
+  /* width: 100%;
+  padding-top: 10rpx;
+  color: var(--primary-color);
+  font-size: 28rpx;
+  text-align: center;
+  background: linear-gradient(rgba(255, 255, 255, 0) 50%, #fff 70%); */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 70rpx;
+  color: var(--primary-color);
+  font-size: 32rpx;
+  text-align: center;
+  background: linear-gradient(rgba(255, 255, 255, 0) 0%, #fff 70%);
+}
+
+.fold {
+  height: 320rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+/* 评分 */
+.hot-rate {
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 50%;
+  background: white;
+  top: 300rpx;
+  position: absolute;
+  right: 115rpx;
+}
+
+/* 拍照识别图片 */
+.takePhoto {
+  margin-top: 100rpx;
+  width: 190rpx;
+  height: 250rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid var(--border-color);
+  padding: 10rpx;
+  margin-left: 80rpx;
+}
+
+/* 拍照识别图片 */
+.takePhoto1 {
+  margin-top: 60rpx;
+  width: 190rpx;
+  height: 200rpx;
+  border-radius: 20rpx;
+  padding: 10rpx;
+  margin-left: 80rpx;
+}
+
+.takePhoto_img {
+  width: 160rpx;
+  height: 200rpx;
+  border-radius: 16rpx;
+}
+
+/* 参考价格 */
+.price_btn {
+  background-color: #F2F2F2;
+  border-color: #F2F2F2;
+  color: #979797;
+  padding: 10rpx;
+  margin-top: 45rpx;
+  border-radius: 30rpx;
+}
+
+.btn_mini_price {
+  border-color: #F2F2F2;
+  margin-top: 30rpx;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #F2F2F2;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  color: #979797;
+  cursor: pointer;
+  line-height: 1.8;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26rpx;
+}
+
+.circle {
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 50%;
+  border: 2rpx solid #979797;
+  padding: 14rpx;
+  margin-right: 24rpx;
+}
+
+.circles {
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 50%;
+  border: 2rpx solid #979797;
+  padding: 18rpx;
+  margin-right: 24rpx;
+}
+
+.van_btn {
+  border: 2rpx solid black !important;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 40rpx;
+  box-sizing: border-box;
+  /* color: #000; */
+  /* cursor: pointer; */
+  /* line-height: 2.55555556; */
+  margin-left: 30rpx;
+  margin-right: 24rpx;
+  overflow: hidden;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 2;
+  font-weight: 450;
+  padding: 4rpx 32rpx;
+}
+
+.van_btn image {
+  width: 40rpx;
+  height: 36rpx;
+}
+
+.bds {
+  border: 2rpx solid var(--border-color);
+  margin-right: 25rpx;
+  /* padding:0 20rpx; */
+  border-radius: 10rpx;
+  width: 40%;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.volume-item {
+  height: 120rpx;
+  margin-right: 25rpx;
+  border: 2rpx solid var(--border-color);
+  /* 计算每个元素的宽度：20px是前三个元素的间距（margin-right）和，除以4即为每个元素的宽度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  width: calc((100% - 25rpx) / 4);
+}
+
+/* 将下标是4的倍数元素的margin-right设置为0，即将每行最后一个元素的margin-right置0 */
+.volume-item:nth-of-type(4n+0) {
+  margin-right: 0;
+}
+
+/* 编者注 */
+.editCard {
+  background-color: white;
+  border-radius: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+/* 简介 */
+.blurbCard {
+  background-color: white;
+  border-radius: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.blud_btn {
+  border-radius: 30rpx;
+  border: 2rpx solid #000;
+}
+
+.blud_btn .active {
+  border: 2rpx solid black;
+  background-color: black;
+  color: white;
+}
+
+.mg-light {
+  margin: 10rpx 30rpx 10rpx 30rpx;
+}
+
+.bd-bt-blurb {
+  border-bottom: 2rpx solid #EEEEEE;
+  padding: 20rpx 0;
+}
+
+.bd-bt-blurb:last-child {
+  border-bottom: none;
+}
+
+.box {
+  display: flex;
+}
+
+.box .item {
+  flex: 1;
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 50rpx;
+}
+
+.active {
+  color: white;
+  background-color: black;
+  border: 2rpx solid black;
+}
+
+.blud_logo {
+  width: 72rpx;
+  height: 72rpx;
+}
+
+/* 口味特征 */
+.flavourCard {
+  background-color: white;
+  border-radius: 20rpx;
+  padding-bottom: 20rpx;
+  /* padding: 0 20rpx 20rpx 20rpx; */
+}
+
+.van-field__control:disabled,
+.van-field__control[disabled] {
+  color: #B81728;
+  opacity: 1;
+  /* // // ios 和 安卓9.0 必须添加此属性，才会生效 */
+  -webkit-text-fill-color: #000;
+  -webkit-opacity: 1;
+}
+
+/* 展开收缩 */
+.hiddenmore .more-item {
+  display: none;
+}
+
+.map:first-child {
+  border-radius: 12px;
+}
+
+.showmore .more-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.bd-bt-flavour {
+  width: 100%;
+  border-bottom: 2rpx solid var(--border-bd-color);
+}
+
+.custom-class {
+  margin: 10rpx 40rpx;
+}
+
+.custom-button {
+  width: 70rpx;
+  color: #B81728;
+  font-size: 20rpx;
+  line-height: 20rpx;
+  text-align: center;
+  background-color: #B81728;
+  border-radius: 200rpx;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* 评价 */
+.evaluateCard {
+  background-color: white;
+  border-radius: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+
+
+/* 赏酒攻略 */
+.tasteCard {
+  background-color: white;
+  border-radius: 20rpx;
+  padding-bottom: 10rpx;
+}
+
+/* 醒酒时间 */
+.custom_button_time {
+  width: 20rpx;
+  color: #B81728;
+  font-size: 20rpx;
+  line-height: 20rpx;
+  text-align: center;
+  background-color: #B81728;
+  border-radius: 200rpx;
+}
+
+/* 食物搭配 */
+.foodLogo {
+  font-weight: 400;
+  font-size: 20rpx;
+  color: #B81728;
+  background: #F6F3F0;
+  padding: 4rpx 8rpx;
+  border-radius: 64rpx 32rpx 0rpx 64rpx;
+  position: absolute;
+  top: -20rpx;
+  left: 0;
+}
+
+.food-item {
+  flex: 0.25;
+  /*一行排列4个*/
+  height: 140rpx;
+  border: 2rpx solid var(--border-color);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25rpx;
+  border-radius: 10rpx;
+}
+
+/* 将下标是4的倍数元素的margin-right设置为0，即将每行最后一个元素的margin-right置0 */
+.food-item:nth-of-type(4n+0) {
+  margin-right: 0;
+}
+
+/* 推荐场合 */
+.recommend-flex {
+  flex: 0.25;
+  /*一行排列4个*/
+  height: 120rpx;
+  border: 2rpx solid var(--border-color);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25rpx;
+  border-radius: 10rpx;
+}
+
+.recommend-flex:nth-of-type(4n+0) {
+  margin-right: 0;
+}
+
+.recommend-item {
+  height: 120rpx;
+  margin-right: 25rpx;
+  border: 2rpx solid var(--border-color);
+  /* 计算每个元素的宽度：20px是前三个元素的间距（margin-right）和，除以4即为每个元素的宽度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  width: calc((100% - 25rpx) / 4);
+  position: relative;
+}
+
+/* 将下标是4的倍数元素的margin-right设置为0，即将每行最后一个元素的margin-right置0 */
+.recommend-item:nth-of-type(4n+0) {
+  margin-right: 0;
+}
+
+.recommendLogo {
+  font-weight: 400;
+  font-size: 20rpx;
+  color: #B81728;
+  background: #F6F3F0;
+  padding: 4rpx 8rpx;
+  border-radius: 64rpx 32rpx 0rpx 64rpx;
+  position: absolute;
+  top: -20rpx;
+  left: 0;
+}
+
+/* 酿酒师笔记 */
+.brewerCard {
+  background-color: white;
+  border-radius: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+/* 酒庄 */
+.wineryCard {
+  background-color: white;
+  border-radius: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.btn_mini_winery {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #F6F3F0;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  line-height: 2.55555556;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-left: 46rpx;
+  padding-right: 46rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 26rpx;
+  line-height: 2.3;
+}
+
+.flag_btn {
+  margin-top: 20rpx;
+  padding: 0 40rpx;
+  color: #FFD1D8;
+}
+
+.Group {
+  width: 140rpx;
+  height: 84rpx;
+  display: inline-block;
+  position: relative;
+}
+
+/* Salty */
+.Salty {
+  position: absolute;
+  width: 22rpx;
+  height: 22rpx;
+  left: 5rpx;
+  top: 34rpx;
+  background: #BFBFBF;
+  border-radius: 50%;
+}
+
+/* Bitter */
+.bitter {
+  position: absolute;
+  width: 14rpx;
+  height: 14rpx;
+  left: 127rpx;
+  top: 10rpx;
+  background: #FBCF4E;
+  border-radius: 7rpx;
+  border-radius: 50%;
+}
+
+/* Sour */
+.sour {
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  /* left: 28rpx; */
+  top: 0rpx;
+  background: #B98C04;
+  border-radius: 50%;
+}
+
+/* Umami */
+.Umami {
+  position: absolute;
+  width: 28rpx;
+  height: 28rpx;
+  left: 106rpx;
+  top: 40rpx;
+  background: #BFBFBF;
+  border-radius: 50%;
+}
+
+/* Sweet */
+.sweet {
+  position: absolute;
+  width: 28rpx;
+  height: 28rpx;
+  left: 82rpx;
+  top: -16rpx;
+  background: #FFD1D8;
+  border-radius: 50%;
+}
+
+/* Pill */
+.pill {
+  /* position: absolute;
+  width: 120rpx;
+  height: 60rpx;
+  left: 29rpx;
+  top: 15rpx;
+  background: #E9F7EF;
+  border-radius: 28rpx;
+  z-index: 88;
+  line-height: 60rpx; */
+  /* position: absolute; */
+  width: 120rpx;
+  height: 60rpx;
+  /* left: 29rpx; */
+  /* top: 15rpx; */
+  background: #E9F7EF;
+  border-radius: 28rpx;
+  z-index: 88;
+  line-height: 60rpx;
+  display: inline-block;
+  position: relative;
+}
+/* 你可能喜欢 */
+.likeCard {
+  background-color: white;
+  border-radius: 20rpx;
+  padding-bottom: 20rpx;
+}

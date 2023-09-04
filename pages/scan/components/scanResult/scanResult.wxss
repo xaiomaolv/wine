@@ -1,0 +1,183 @@
+/* pages/scan/components/scanResult/scanResult.wxss */
+.mg-tp-3 {
+  margin-top: 6rpx;
+}
+.mg-tp-4 {
+  margin-top: 8rpx;
+}
+/* .mg-tp-5 {
+  margin-top: 10rpx;
+}
+.mg-tp-10 {
+  margin-top: 20rpx;
+}
+.mg-tp-20 {
+  margin-top: 40rpx;
+}
+.mg-tp-40 {
+  margin-top: 80rpx;
+}
+.mg-bt-25 {
+  margin-bottom: 50rpx;
+}
+.mg-bt-30 {
+  margin-bottom: 60rpx;
+}
+.mg-lr-10 {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.ft-se-12 {
+  font-size: 24rpx;
+}
+.ft-se-34 {
+  font-size: 68rpx;
+}
+.ft-se-14 {
+  font-size: 28rpx;
+}
+.ft-se-16 {
+  font-size: 32rpx;
+}
+.ft-se-18 {
+  font-size: 36rpx;
+}
+.flex-col-12 {
+  width: 50%;
+}
+.clr-9797 {
+  color: #979797;
+} */
+/* .tx-ct {
+  text-align: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+} */
+/* .flex-row-center {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+} */
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+button {
+  background: transparent;
+  font-weight: normal;
+}
+button::after {
+  outline: none;
+  border: none;
+  display: none;
+}
+
+.btn_mini {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #EEEEEE;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  line-height: 2.55555556;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26rpx;
+  line-height: 2.3;
+}
+
+.try_btn {
+  border-radius: 40rpx;
+  background: black;
+  color: white;
+  padding: 8rpx 64rpx;
+  font-size: 32rpx !important;
+}
+
+.mg-tp-50 {
+  margin-top: 130rpx;
+}
+.mg-tp-90 {
+  margin-top: 230rpx;
+}
+.mg-lr-50 {
+  margin-left: 100rpx;
+  margin-right: 100rpx;
+}
+.mg-bt-25{
+  margin-bottom: 50rpx;
+}
+.icon_view {
+  display: inline-block;
+  position: relative;
+}
+
+.show_icon {
+  position: absolute;
+  top: -11rpx;
+  right: 0px;
+  z-index: 1;
+  width: 48rpx;
+  height: 48rpx;
+}
+.wine_img {
+  width: 266rpx;
+  height: 640rpx;
+  margin-top: 30rpx;
+  margin-left: 100rpx;
+}
+.wine_img_no_img{
+  width: 230rpx;
+  height: 400rpx;
+  margin-top: 30rpx;
+  margin-left: 100rpx;
+}
+.hot-rate {
+  margin-right: 90rpx;
+  margin-top: 60rpx;
+}
+.price_btn {
+  border-radius: 40rpx;
+  background: #F2F2F2;
+  color: #979797;
+  padding: 5rpx 30rpx;
+  margin-top: 40rpx;
+}
+
+.btn_p {
+  border-radius: 10rpx;
+  margin: 10rpx 20rpx 10rpx 0;
+}
+
+.btn_more {
+  color: white;
+  background: black;
+  margin-top: 10rpx;
+  padding: 8rpx 76rpx !important;
+  border-radius: 50rpx;
+  font-size: 32rpx !important;
+}
+/* .nationFlag {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+} */

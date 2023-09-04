@@ -1,0 +1,26 @@
+{
+  "usingComponents": {
+    "towxml":"/towxml/towxml",
+    "starRate":"/components/starRate/starRate",
+    "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
+    "navTabs":"/components/navTabs/navTabs",
+    "topNav":"/components/topNav/topNav",
+    "rateEchart":"/pages/detail/components/liquidFill/liquidFill",
+    "scroll_x":"/pages/detail/index/components/scroll_x_wine/scroll_x_wine",
+    "guage":"/pages/detail/components/gauage/gauage",
+    "qqMap":"/components/qqMap/qqMap",
+    "flavourCard":"/pages/detail/index/components/flavourCard/flavourCard",
+    "decanteTime":"/pages/detail/index/components/decanteTime/decanteTime",
+    "blurbLabel":"/pages/detail/index/components/blurbLabel/blurbLabel",
+    "commentInfo":"/pages/detail/index/components/commentInfo/commentInfo",
+    "recomeYear":"/pages/detail/index/components/recomeYear/recomeYear",
+    "logCard":"/pages/detail/index/components/logCard/logCard",
+    "teamRate":"/pages/detail/index/components/teamRate/teamRate",
+    "likeCard":"/pages/detail/index/components/likeCard/likeCard",
+    "scanImg":"/pages/detail/index/components/scanImg/scanImg",
+    "similarWine":"/pages/detail/index/components/similarWine/similarWine",
+    "detailVideo":"/pages/detail/index/components/detailVideo/detailVideo",
+    "commonImage": "/components/commonImage/commonImage"
+  },
+  "navigationStyle": "custom"
+}

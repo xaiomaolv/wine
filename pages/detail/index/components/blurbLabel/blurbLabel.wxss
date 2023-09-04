@@ -1,0 +1,94 @@
+/* pages/detail/index/components/blurbLabel/blurbLabel.wxss */
+.mg-5 {
+  margin: 15rpx;
+}
+.mg-tp-5{
+  margin-top: 10rpx;
+}
+.mg-tp-15{
+  margin-top: 30rpx;
+}
+.mg-10-25 {
+  margin: 20rpx 50rpx;
+}
+.bd-rt{
+  border-right: 1rpx solid #BBBBBB;
+}
+.mg-lt-5 {
+  margin-left: 10rpx;
+}
+.mg-bt-10 {
+  margin-bottom: 20rpx;
+}
+.tx-ct{
+  text-align: center;
+}
+.ft-se-13 {
+  font-size: 26rpx;
+}
+.ft-se-14 {
+  font-size: 28rpx;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.flex-round{
+  display: flex;align-items: center;justify-content: space-around;
+}
+.flex-col-8 {
+  width: 33.33333333%;
+}
+.flex-col-12 {
+  width: 50%;
+}
+.clr-5F {
+  color: #5F5F5F;
+}
+.btn_mini_country {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #F6F3F0;
+  border-radius: 80rpx;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26rpx;
+  line-height: 2.7;
+}
+/*button 按钮 mini*/
+.btn_mini {
+  /* -webkit-tap-highlight-color: transparent; */
+  background-color: #F6F3F0;
+  border-radius: 80rpx;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  line-height: 2.7;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26rpx;
+  /* line-height: 2.3; */
+}
+/* 国旗小 */
+.nationFlag {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+}

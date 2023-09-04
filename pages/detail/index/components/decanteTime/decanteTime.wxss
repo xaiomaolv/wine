@@ -1,0 +1,48 @@
+/* pages/detail/index/components/decanteTime/decanteTime.wxss */
+.mg-10-0{
+  margin: 20rpx 0;
+}
+.mg-10-15 {
+  margin: 20rpx 30rpx;
+}
+.pd-tp-10 {
+  padding-top: 20rpx;
+}
+.clr-5F {
+  color: #5F5F5F
+}
+.clr-pri {
+  color: #B81728;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.flex-col-4 {
+  width: 16.66666667%;
+}
+.flex-col-16 {
+  width: 66.66666667%;
+}
+.ft-se-12 {
+  font-size: 24rpx;
+}
+.ft-se-12{
+  font-size: 24rpx;
+}
+.clr-999 {
+  color: #999;
+}
+.tx-ct {
+  text-align: center;
+}
+/* 行式弹性盒子两端对齐 */
+.flex-space {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}

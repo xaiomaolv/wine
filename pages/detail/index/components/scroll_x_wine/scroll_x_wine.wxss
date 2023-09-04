@@ -1,0 +1,103 @@
+/* pages/detail/components/scroll_x_wine/scroll_x_wine.wxss */
+.tx-ct{
+  text-align: center;
+}
+.mg-tp-10 {
+  margin-top: 20rpx;
+}
+.mg-tp-20 {
+  margin-top: 40rpx;
+}
+.pd-tp-10 {
+  padding-top: 20rpx;
+}
+.ft-se-12 {
+  font-size: 24rpx;
+}
+.ft-se-14 {
+  font-size: 28rpx;
+}
+.ft-se-34 {
+  font-size: 68rpx;
+}
+.clr-999 {
+  color: #999;
+}
+.clr-pri {
+  color: #B81728;
+}
+.bd-tp {
+  border-top: var(--border-color) solid 1px;
+}
+.hot-card-bg {
+  background: #9C720E;
+  width: 100%;
+  height: 300rpx;
+  clip-path: ellipse(90% 60% at 35% 35%);
+}
+.hot-rate {
+  height: 200rpx;
+  width: 200rpx;
+  margin-left: 100rpx;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 240rpx;
+}
+/* 行式弹性盒子 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+.scroll_w {
+  margin-top: 30px;
+  /* 不换行 */
+  white-space: nowrap;
+}
+
+.scroll_w .scroll-box {
+  display: inline-block;
+  width: 280rpx;
+  height: 620rpx;
+  margin: 0 30rpx;
+}
+
+.scroll_wine_image {
+  width: 200rpx;
+  height: 480rpx;
+}
+.scroll_wine_image image {
+  width: 200rpx;
+  height: 480rpx;
+}
+.scroll_photo_image {
+  width: 240rpx;
+  height: 480rpx;
+}
+.scroll_photo_image image{
+  width: 240rpx;
+  height: 480rpx;
+}
+/* 去掉滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.bt_txet{
+  font-size: 28rpx;
+  white-space:pre-wrap;
+}
+/* 多行文字换行 */
+.two_ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

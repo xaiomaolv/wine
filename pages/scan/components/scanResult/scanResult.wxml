@@ -1,0 +1,76 @@
+<!--pages/scan/components/scanResult/scanResult.wxml-->
+<wxs module="filters" src="../../../../utils/filters.wxs"></wxs>
+<view>
+  <van-popup show="{{ showResult }}" closeable round close-icon="/img/scan/close.png" position="bottom" bind:close="onClose">
+    <!-- 正在识别 -->
+    <view wx:if="{{identifying == 0}}" style="display: flex;flex-direction: row;justify-content: center;align-items: center;">
+      <canvas style="height:680rpx ;width:100%;display: flex;flex-direction: row;justify-content: center;align-items: center;" id="lottie_demo" type="2d">
+        <view class="tx-ct mg-tp-40">
+          <image style="height:480rpx ;width:320rpx;border-radius: 10rpx;margin: auto;" src="{{imgInfo.tempFilePaths}}" mode="aspectFit" />
+          <view class="mg-tp-10 mg-bt-30">正在识别酒款...</view>
+        </view>
+      </canvas>
+    </view>
+    <!-- 识别失败 -->
+    <view wx:if="{{identifying == 2}}" class="tx-ct mg-tp-50">
+      <view class="flex-row-center">
+        <view class="icon_view">
+          <image style="height:30vh ;width:20vh;border-radius: 10rpx;margin: 0 10rpx;" src="{{imgInfo.tempFilePaths}}" />
+          <image src="/img/scan/icon_e.png" class="show_icon"></image>
+        </view>
+        <view class="icon_view">
+          <image style="height:30vh ;width:20vh;margin: 0 10rpx;border-radius: 16rpx;" src="/img/scan/wine_tip.png" />
+          <image src="/img/scan/icon_s.png" class="show_icon"></image>
+        </view>
+      </view>
+      <view class="mg-tp-10">无法识别酒款</view>
+      <view class="ft-se-14 clr-999 mg-lr-50">请检查你拍摄图片的角度，扫酒识别需正对酒标拍照。</view>
+      <view class="mg-tp-20 try_btn btn_mini mg-bt-25" bindtap="tryAgain">
+        <van-icon name="replay" />
+        再试一次
+      </view>
+    </view>
+    <!-- 识别成功 -->
+    <view wx:if="{{identifying == 1}}">
+      <view class="flex-row tx-ct" style="padding-bottom: 20rpx;">
+        <view class="flex-col-12">
+          <!-- <image class="{{isWineBottle == true ? 'wine_img' : 'wine_img_no_img'}}" src="{{wineInfo.imgzip}}?x-oss-process=image/format,webp/crop,image/resize,p_50" mode="aspectFit" bindload="onImgLoad" /> -->
+          <image class="{{isWineBottle == true ? 'wine_img' : 'wine_img_no_img'}}" src="{{wineInfo.imgUrl ? wineInfo.imgUrl+'?width=400&height=960&webp=1' : imgUrl+wineInfo.img}}" mode="aspectFit" bindload="onImgLoad"/>
+        </view>
+        <view class="flex-col-12">
+          <!-- 评分 -->
+          <view class="hot-rate">
+            <view class="ft-se-34">{{filters.toFix1(wineInfo.vintageRate)}}</view>
+            <!-- <van-rate allow-half readonly void-color="#eee" color="#B81728" value="3.5" size="16" bind:change="onChange" /> -->
+            <starRate wx:if="{{wineInfo.vintageRate}}" remark_num="{{wineInfo.vintageRate}}" iconStyle="width:50rpx;height:50rpx"></starRate>
+            <view class="ft-se-16 mg-tp-4">{{wineInfo.numOfVintageRates || 0}}条评价</view>
+            <!-- 参考价格 -->
+            <view class="btn_mini price_btn">
+              <text class="mg-rt-5 ft-se-16">¥</text>******
+            </view>
+            <view class="mg-tp-5 ft-se-12 clr-9797">*价格请点击查看更多</view>
+          </view>
+        </view>
+      </view>
+      <view class="mg-lr-10">
+        <view class="ft-se-18">{{wineInfo.vintageName}}</view>
+        <view class="row">
+          <image wx:if="{{wineInfo.countryCode}}" src="/img/countries/{{wineInfo.countryCode}}.svg" mode="aspectFit" class="nationFlag" />
+          <view wx:if="{{wineInfo.country || wineInfo.region || wineInfo.wineryName}}" class="mg-lt-5 ft-se-14">来自{{wineInfo.country}}·{{wineInfo.region}}·{{wineInfo.wineryName}}</view>
+          <view wx:else>产地未知</view>
+        </view>
+        <view class="ft-se-12">{{wineInfo.enName}}</view>
+        <view class="btn_mini btn_p" wx:if="{{wineInfo.isNatural == true}}">{{wineInfo.isNatural ? '天然葡萄酒' : ''}}</view>
+        <view class="btn_mini btn_p" wx:if="{{wineInfo.isSpecial== true}}">{{wineInfo.isSpecial ? '风格奖得主' : ''}}</view>
+      </view>
+      <view class="row mg-bt-25 mg-tp-20">
+        <block>
+          <button wx:if="{{!isToken}}" size="mini" class="btn_more" round open-type="getPhoneNumber" bindgetphonenumber="getUserProfile">查看更多></button>
+          <button wx:else size="mini" class="btn_more" round bindtap="toDetail">查看更多></button>
+          <!-- <button size="mini" class="btn_more" round bindtap="toDetail">查看更多></button> -->
+        </block>
+        <!-- <button wx:else size="mini" class="btn_more" round  bindtap="toDetail">查看更多></button> -->
+      </view>
+    </view>
+  </van-popup>
+</view>

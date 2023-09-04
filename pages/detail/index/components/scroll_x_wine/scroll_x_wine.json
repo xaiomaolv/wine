@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "commonImage": "/components/commonImage/commonImage",
+    "starRate":"/components/starRate/starRate"
+  }
+}

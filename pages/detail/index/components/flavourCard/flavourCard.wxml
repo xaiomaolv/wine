@@ -1,0 +1,130 @@
+<!--pages/detail/index/components/flavourCard.wxml-->
+<!-- 口味特征 -->
+<view class="flex-space mg-10-15 pd-tp-10 mg-bt-5">
+  <view class="clr-5F">口味特征
+    <text class="ft-se-12 clr-999" wx:if="{{wineCharacteristicsVO.total > 0}}">{{wineCharacteristicsVO.total}}条评论</text>
+  </view>
+  <view class="ft-se-12 clr-pri clickRange" bindtap="toDownApp">
+    <van-icon name="edit" color="#B81728" />我要描述
+  </view>
+</view>
+<!-- 葡萄酒 -->
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.intensity}}">
+  <view class="flex-col-4 ft-se-12">清淡</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.intensity}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.intensity}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">醇厚</view>
+</view>
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.sweetness}}">
+  <view class="flex-col-4 ft-se-12">干</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.sweetness}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.sweetness}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">甜</view>
+</view>
+<!-- <view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.intensity}}">
+  <view class="flex-col-4 ft-se-12">清淡</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.intensity}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.intensity}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">柔和</view>
+</view> -->
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.acidity}}">
+  <view class="flex-col-4 ft-se-12">柔和</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.acidity}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bind:drag="onDrag" bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.acidity}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">酸</view>
+</view>
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.tannin}}">
+  <view class="flex-col-4 ft-se-12">顺滑</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.tannin}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.tannin}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">单宁</view>
+</view>
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.fizziness}}">
+  <view class="flex-col-4 ft-se-12">温和</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.fizziness}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.fizziness}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">起泡</view>
+</view>
+<!-- 白酒 -->
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.transparent}}">
+  <view class="flex-col-4 ft-se-12">浑浊</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.transparent}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.transparent}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">透亮</view>
+</view>
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.aftertaste}}">
+  <view class="flex-col-4 ft-se-12">余味短</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.aftertaste}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bind:drag="onDrag" bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.aftertaste}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">余味长</view>
+</view>
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.palatability}}">
+  <view class="flex-col-4 ft-se-12">辣燥</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.palatability}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.palatability}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">平顺</view>
+</view>
+<!-- 威士忌 -->
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.color}}">
+  <view class="flex-col-4 ft-se-12">浑浊</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.color}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.color}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">透亮</view>
+</view>
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.smell}}">
+  <view class="flex-col-4 ft-se-12">单一</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.smell}}" min="0" max="5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.smell}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">复合</view>
+</view>
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.taste}}">
+  <view class="flex-col-4 ft-se-12">清爽</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.taste}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.taste}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">醇厚</view>
+</view>
+<view class="row tx-ct mg-10-15" wx:if="{{wineCharacteristicsVO.relive}}">
+  <view class="flex-col-4 ft-se-12">余味短</view>
+  <view class="flex-col-16">
+    <van-slider class="" disabled value="{{wineCharacteristicsVO.relive}}" min="0" max="5.5" inactive-color="#EBEDF0" active-color="#EBEDF0" use-button-slot bar-height="10px">
+      <view class="custom-button" slot="button">{{wineCharacteristicsVO.relive}}</view>
+    </van-slider>
+  </view>
+  <view class="flex-col-4 ft-se-12">余味长</view>
+</view>

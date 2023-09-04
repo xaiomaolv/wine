@@ -1,0 +1,111 @@
+/* pages/detail/index/components/logCard/logCard.wxss */
+.mg-tp-5 {
+  margin-top: 10rpx;
+}
+
+.mg-10-15 {
+  margin: 20rpx 30rpx;
+}
+
+.mg-lt-5 {
+  margin-left: 10rpx;
+}
+
+.mg-lt-10 {
+  margin-left: 20rpx;
+}
+
+.mg-rt-10 {
+  margin-right: 20rpx;
+}
+.pd-tp-10{
+  padding-top: 20rpx;
+}
+.clr-pri {
+  color: #B81728;
+}
+
+.clr-999 {
+  color: #999;
+}
+
+.ft-se-13 {
+  font-size: 26rpx;
+}
+.ft-se-14 {
+  font-size: 28rpx;
+}
+
+.tx-lt {
+  text-align: left;
+}
+
+/* 头像大小 */
+.avator {
+  height: 96rpx;
+  width: 96rpx;
+  border-radius: 50%;
+}
+
+/* 行式弹性盒子 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+/* 我的日志 */
+.logCard {
+  background-color: white;
+  border-radius: 20rpx;
+  padding-bottom: 20rpx;
+  /* padding: 0 20rpx 20rpx 20rpx; */
+}
+
+.log_rate_v {
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--rate-bg);
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28rpx;
+  line-height: 1.8;
+}
+
+.log_btn {
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--btn-bg);
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28rpx;
+  line-height: 1.8;
+}
+
+.custom-icon{
+  margin-right: 16rpx;
+}
+/* 评分颜色 */
+.clr-rate {
+  color: #FCB709;
+}
+.clr-000{
+  color: #000;
+}

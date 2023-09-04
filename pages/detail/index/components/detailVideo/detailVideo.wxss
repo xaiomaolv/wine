@@ -1,0 +1,67 @@
+/* pages/detail/index/components/detailVideo/detailVideo.wxss */
+.mg-tp-10{
+  margin-top: 20rpx;
+}
+.mg-10-15 {
+  margin: 20rpx 30rpx;
+}
+.pd-tp-10 {
+  padding-top: 20rpx;
+}
+.flex-col-8 {
+  width: 33.33333333%;
+}
+.mg-lt-5{
+  margin-right: 10rpx;
+}
+.mg-rt-5{
+  margin-right: 10rpx;
+}
+.ft-se-12{
+  font-size: 24rpx;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.clr-5F {
+  color: #5F5F5F
+}
+.clr-pri {
+  color: #B81728;
+}
+/* 行式弹性盒子两端对齐 */
+.flex-space {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.evlVideo {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+}
+
+.evlVideo_s {
+  height: 330rpx;
+  margin: 4rpx;
+  border-radius: 10rpx;
+}
+
+.evlVideo_text {
+  font-size: 26rpx;
+  color: white;
+  position: absolute;
+  bottom: 20rpx;
+  left: 20rpx;
+}
+.nationFlag {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+}

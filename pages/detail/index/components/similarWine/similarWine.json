@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "commonImage": "/components/commonImage/commonImage"
+  }
+}

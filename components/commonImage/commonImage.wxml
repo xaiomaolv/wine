@@ -1,0 +1,2 @@
+<!--components/commonImage/commonImage.wxml-->
+<image imgUuid="{{imgUuid}}" src="{{imageUrl}}" mode="{{mode}}" style="{{ styleStr }}" bindload="onImgLoad" class="{{ classStr }}" lazy-load="true"></image>

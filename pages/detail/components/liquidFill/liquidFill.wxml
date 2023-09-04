@@ -1,0 +1,28 @@
+<!--components/liquidFill/liquidFill.wxml-->
+<view class="flex-row">
+  <view class="flex-center">
+    <view class="left-box">
+      <ec-canvas class="ec-canvas" id="charts_left" canvas-id="charts_left" ec="{{ ec_left }}"></ec-canvas>
+      <image src="../../img/mate/scale.png" class="scale-img"></image>
+      <view class="count-box flex-center" style="background-image:url({{union}});position: absolute;top: -20rpx;left: 84rpx;">
+        <view class="">
+          前
+          <view class="count-text">
+            <view class="countUp"> {{leftCount}}%</view>
+          </view>
+        </view>
+      </view>
+      <view style="font-size: 24rpx;margin-top: 10rpx;text-align: center;">{{leftText}}</view>
+    </view>
+    <view class="left-box" wx:if="{{right == true}}">
+      <ec-canvas class="ec-canvas" id="charts_right" canvas-id="charts_right" ec="{{ ec_right }}"></ec-canvas>
+      <image src="../../img/mate/scale.png" style="height: 100rpx;width: 30rpx;position: absolute; top: 20rpx;left: 56rpx;" class="scale-img"></image>
+      <image src="../../img/mate/Union1.png" mode="" class="" style="position: absolute;top: -20rpx;left: -45rpx;width: 93rpx;height: 84rpx;" />
+      <view class="count-box1">
+        <view>前</view>
+        <view class="countUp"> {{rightCount}}%</view>
+      </view>
+      <view style="font-size: 24rpx;margin-top: 10rpx;text-align: center;" class="tx-of">{{rightText}}</view>
+    </view>
+  </view>
+</view>

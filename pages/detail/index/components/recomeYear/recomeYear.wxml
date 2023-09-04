@@ -1,0 +1,18 @@
+<!--pages/detail/index/components/recomeYear/recomeYear.wxml-->
+<view class="flex-row mg-10-15 ft-se-12">
+  <view class="volume-item tx-ct" wx:for="{{newYear}}" wx:key="index" wx:if="{{index <= 2}}">
+    <view class="">
+      <view class="">{{item.year}}</view>
+      <view wx:if="{{item.tag == 'topRated'}}">最高评分</view>
+      <view wx:if="{{item.tag == 'minPrice'}}">最优价格</view>
+      <view wx:if="{{item.tag == 'mostPopular'}}">最受欢迎</view>
+      <view wx:if="{{item.tag == 'topRated'}}" class="ft-se-10 clr-999">{{item.rate}}分</view>
+      <view wx:if="{{item.tag == 'minPrice'}}" class="ft-se-10 clr-999">¥{{item.price}}</view>
+      <view wx:if="{{item.tag == 'mostPopular'}}" class="ft-se-10 clr-999">{{item.numOfRate}}条评价</view>
+    </view>
+  </view>
+  <view class="volume-item tx-ct flex-col" bindtap="toDownApp" wx:if="{{wineMoreYearList.length > 0}}">
+    <van-icon name="more-o" color="#979797" size="14" />
+    <view class="pd-tp-5 clr-9797">查看更多</view>
+  </view>
+</view>

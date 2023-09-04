@@ -1,0 +1,55 @@
+<!--pages/detail/index/components/DecanteList/DecanteList.wxml-->
+<!-- 醒酒时间 -->
+<view wx:if="{{DecanteList.tenMinutes != 0 || DecanteList.oneHour != 0}}">
+  <view class="flex-space mg-10-15">
+    <view class="clr-5F">醒酒时间
+      <!-- <text class="ft-se-14 clr-999">11143条评论</text> -->
+    </view>
+    <view class="ft-se-12 clr-pri" bindtap="toDownApp">
+      <van-icon name="edit" color="#B81728" size="16" />
+      我要推荐
+    </view>
+  </view>
+  <view class="mg-10-15">
+    <view class="row tx-ct mg-10-0">
+      <view class="flex-col-4 ft-se-12">10分钟</view>
+      <view class="flex-col-16">
+        <van-slider class="" disabled value="{{ (DecanteList.tenMinutes / DecanteList.sum)* 100 || 0}}" min="0" inactive-color="#EBEDF0" active-color="#B81728" use-button-slot bar-height="10px">
+        </van-slider>
+      </view>
+      <view class="flex-col-4 ft-se-12 clr-999">{{DecanteList.tenMinutes}}</view>
+    </view>
+    <view class="row tx-ct mg-10-0">
+      <view class="flex-col-4 ft-se-12">30分钟</view>
+      <view class="flex-col-16">
+        <van-slider class="" disabled value="{{ (DecanteList.thirtyMinutes/ DecanteList.sum)* 100 || 0}}" min="0" inactive-color="#EBEDF0" active-color="#B81728" use-button-slot bar-height="10px">
+        </van-slider>
+      </view>
+      <view class="flex-col-4 ft-se-12 clr-999">{{DecanteList.thirtyMinutes}}</view>
+    </view>
+    <view class="row tx-ct mg-10-0">
+      <view class="flex-col-4 ft-se-12">1小时</view>
+      <view class="flex-col-16">
+        <van-slider class="" disabled value="{{ (DecanteList.oneHour/ DecanteList.sum)* 100 || 0}}" min="0" inactive-color="#EBEDF0" active-color="#B81728" use-button-slot bar-height="10px">
+        </van-slider>
+      </view>
+      <view class="flex-col-4 ft-se-12 clr-999">{{DecanteList.oneHour}}</view>
+    </view>
+    <view class="row tx-ct mg-10-0">
+      <view class="flex-col-4 ft-se-12">2小时</view>
+      <view class="flex-col-16">
+        <van-slider class="" disabled value="{{ (DecanteList.twoHours/ DecanteList.sum)* 100 || 0}}" min="0" inactive-color="#EBEDF0" active-color="#B81728" use-button-slot bar-height="10px">
+        </van-slider>
+      </view>
+      <view class="flex-col-4 ft-se-12 clr-999">{{DecanteList.twoHours}}</view>
+    </view>
+    <view class="row tx-ct mg-10-0">
+      <view class="flex-col-4 ft-se-12">4小时</view>
+      <view class="flex-col-16">
+        <van-slider class="" disabled value="{{ (DecanteList.fourHours/ DecanteList.sum)* 100 || 0}}" min="0" inactive-color="#EBEDF0" active-color="#B81728" use-button-slot bar-height="10px">
+        </van-slider>
+      </view>
+      <view class="flex-col-4 ft-se-12 clr-999">{{DecanteList.fourHours}}</view>
+    </view>
+  </view>
+</view>

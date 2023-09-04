@@ -1,0 +1,22 @@
+<!--pages/detail/index/components/scanImg/scanImg.wxml-->
+<!-- 识别酒款弹窗 -->
+<view wx:if="{{scanImg}}" class="{{showSimilar==true?'Mantle':''}}" catchtouchmove="true">
+  <view style="position: relative;">
+    <view class="aa" wx:if="{{showSimilar}}">
+      <view style="width: 100%;height: 656rpx;">
+        <!-- <image src="{{scanImg ? scanImg+'?x-oss-process=image/format,webp/crop,image/resize,p_75' : ''}}" style="height: 656rpx;width: 496rpx;border-radius: 24rpx;" mode="aspectFill" lazy-load="true" /> -->
+        <image src="{{scanImg ? scanImg+'?width=200&height=300&webp=1' : imgUrl+scannedPhotoUUID}}" style="height: 656rpx;width: 496rpx;border-radius: 24rpx;" mode="aspectFit" lazy-load="true"/>
+      </view>
+      <view class="mg-tp-20 ft-se-16 ft-bd-400">您于{{scanDate}}扫描识别</view>
+      <view class="van_btn_rate row mg-tp-20" bind:tap="toDownApp">
+        <image src="../../../img/mate/star.png" class="van_btn_rate_image" mode="aspectFit" />
+        <view class="ft-se-16 mg-lt-5">添加你的评分</view>
+      </view>
+      <view class="row clr-pri mg-tp-10" bind:tap="toDownApp">
+        <van-icon name="edit" color="#B81728" size="16" class="mg-rt-5" />
+        <text class="ft-se-14 clickRange">编辑</text>
+      </view>
+    </view>
+  </view>
+  <image bindtap="closeSimilar" wx:if="{{showSimilar}}" src="/pages/detail/img/mate/close_s.png" mode="aspectFit" style="height: 60rpx;height: 60rpx;line-height: 60rpx; position: absolute; top: {{navBarHeight}}px; left: -26%;" />
+</view>

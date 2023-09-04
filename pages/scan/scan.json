@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "commonImage": "/components/commonImage/commonImage",
+    "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
+    "scanResult": "/pages/scan/components/scanResult/scanResult"
+  },
+  "navigationStyle": "custom"
+}

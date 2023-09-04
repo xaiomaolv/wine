@@ -1,0 +1,28 @@
+<!--pages/detail/index/components/teamRate/teamRate.wxml-->
+<!-- 权威评价 -->
+<view>
+  <view class="mg-team">
+    <view class="flex-row">
+      <view class="flex-col-12 clr-5F">权威评价</view>
+      <view wx:if="{{detailInfo.teamRateCount > 0}}" class="clr-999 ft-se-12 flex-col-24 tx-rt">{{detailInfo.teamRateCount}}条评论</view>
+    </view>
+    <view class="tx-ct bd-bt-team" wx:for="{{detailInfo.teamRateList}}" wx:key="index">
+      <view class="flex-row-center">
+        <text class="clr-pri ft-bd ft-se-16">{{item.rate}}</text>
+        <text class="ft-se-16">/{{item.pointSys}}</text>
+        <view class="log_btn mg-lt-10">{{item.year}}年</view>
+      </view>
+      <view class="ft-se-14 mg-tp-10 clr-1B" hidden="{{item.comment}}">{{item.comment}}</view>
+      <view class="ft-se-14 clr-9797 mg-10-0" bindtap="teamTip" data-item="{{item}}">{{item.teamName}}, {{item.rateDate}}
+        <van-icon name="question-o" color="#979797" />
+      </view>
+    </view>
+  </view>
+  <view class="tx-ct clr-pri pd-tp-10 bd-tp" bindtap="toDownApp">查看全部</view>
+</view>
+<van-popup show="{{ showTeam }}" custom-style="height: 40%;" closeable round close-icon="/img/scan/close.png" position="bottom" bind:close="onClose">
+  <view class="mg-team-pop">
+    <view class="ft-bd mg-tb-10">{{teamDesrc.teamName}}</view>
+    <view class="ft-se-14 clr-5F">{{teamDesrc.description}}</view>
+  </view>
+</van-popup>

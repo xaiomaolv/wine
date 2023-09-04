@@ -1,0 +1,31 @@
+<!--pages/downApp/downApp.wxml-->
+<view class="wrapper">
+  <view class="mg-tb-30">
+    <view class="tx-ct ft-se-20">一个拥有全球酒友真实评分的识酒APP</view>
+    <view class="row mg-tp-30">
+      <view class="flex-col-12 tx-ct">
+        <view class="ft-se-28 ft-bd"> 近6000万 </view>
+        <view class="flex-center op7 mg-tp-10"> APP用户 </view>
+        <view class="ft-se-30 ft-bd mg-tp-20"> 18亿次 </view>
+        <view class="flex-center op7 mg-tp-10"> 外瓶扫描 </view>
+      </view>
+      <view class="flex-col-12 tx-ct">
+        <view class="ft-se-28 ft-bd"> 2亿3200万 </view>
+        <view class="flex-center op7 mg-tp-10"> 葡萄酒评分 </view>
+        <view class="ft-se-30 ft-bd mg-tp-20"> 1470万瓶 </view>
+        <view class="flex-center op7 mg-tp-10"> 葡萄酒上线平台 </view>
+      </view>
+    </view>
+    <view class="tx-ct">
+      <image src="../img/mate/down.png" style="height:40vh" mode="aspectFit" />
+    </view>
+    <button class="btn_w" open-type="contact" bindtap="clip">点击下载Vivino唯唯诺APP</button>
+    <view class="tx-ct">
+      <view class="ft-se-20 mg-tp-30">-下载说明-</view>
+      <view class="mg-tp-20">点击按钮后回复“App”即可获取APP下载链接。</view>
+      <view class="op7 mg-tp-5">(我们已为您复制，粘贴即可)</view>
+      <!-- <image class="mg-tp-30 tx-ct" src="../img/mate/downApp.png" style="width: 100%; height: 100%; vertical-align: middle;" mode="widthFix"/> -->
+      <image class="mg-tp-30 tx-ct" src="/pages/detail/img/mate/downapp.png" style="width: 100%;" mode="widthFix"/>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,94 @@
+/* pages/detail/index/components/scanImg/scanImg.wxss */
+.aa {
+  text-align: center;
+  /* border: 1px solid red; */
+  /* background-color: #FFFFFF9D; */
+  background: linear-gradient(to bottom, rgba(255,0,0,0), white);
+  width: 100%;
+  height: 75%;
+  position: fixed;
+  /* top: 20%; */
+  /* left: 10%; */
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* //主要蒙层代码 */
+.Mantle {
+  width: 100%;
+  height: 100%;
+  /* background: rgb(49, 48, 53, 0.3); */
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 99;
+  backdrop-filter: blur(20rpx);
+}
+
+.close {
+  text-align: center;
+  border-radius: 50rpx;
+  background-color: #000000;
+  color: #ffffff;
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  position: fixed;
+  top: 10%;
+  left: 5%;
+}
+.van_btn_rate{
+  width: 312rpx;
+  height: 76rpx; 
+  border: 2rpx solid black !important;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 40rpx;
+  box-sizing: border-box;
+  margin-left: 30rpx;
+  margin-right: 24rpx;
+  overflow: hidden;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 450;
+  padding: 4rpx 32rpx;
+  /* line-height: 24rpx; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.van_btn_rate_image {
+  width: 40rpx;
+  height: 36rpx;
+}
+.mg-tp-20{
+  margin-top: 40rpx;
+}
+.dots {
+  position: absolute;
+  bottom: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.dots_view {
+  width: 10rpx;
+  height: 10rpx;
+  margin: 0 6rpx;
+  border-radius: 10rpx;
+  background-color: #BBBBBB;
+}
+
+.dots .active {
+  width: 26rpx;
+  height: 10rpx;
+  background-color: #b81728;
+  border: 2rpx solid #b81728;
+}
