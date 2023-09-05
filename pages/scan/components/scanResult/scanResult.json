@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "commonImage": "/components/commonImage/commonImage",
     "van-popup": "/miniprogram_npm/@vant/weapp/popup/index",
     "van-icon": "/miniprogram_npm/@vant/weapp/icon/index",
     "starRate":"/components/starRate/starRate"
