@@ -70,8 +70,6 @@ Page({
       // this.setData({
       //   imglist: res.data
       // })
-      console.log(res,'res');
-      console.log(res.data,'getAppletImgList');
       this.getrandomImage(res.data)
       wx.setStorageSync('imageHomeList', res.data)
     })

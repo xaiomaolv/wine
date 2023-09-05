@@ -6,14 +6,14 @@
       <!-- <text class="ft-se-14 clr-999">11143条评论</text> -->
     </view>
     <view class="ft-se-12 clr-pri row" bindtap="toDownApp">
-      <van-icon name="../../../img/mate/video.png" size="16" class="mg-rt-5" />
+      <van-icon name="/pages/detail/img/mate/video.png" size="16" class="mg-rt-5" />
       点击开拍
     </view>
   </view>
   <view class="mg-tp-10 evlVideo">
     <video class="evlVideo_s flex-col-8" id='myVideo' controls='true' poster="{{item.coverURL}}" play-btn-position="center" enable-play-gesture="true" show-play-btn="false" show-fullscreen-btn="false" wx:for="{{videoList}}" wx:key="index" src='{{item.srcVideo}}' bindtap="toDownApp">
       <view>
-        <image mode="aspectFill" style="height: 330rpx;width: 100%;" src="{{item.coverURL+'?width=200&height=300&webp=1'}}"></image>
+        <image mode="aspectFill" style="height: 330rpx;width: 100%;" src="{{item.coverURL}}"></image>
       </view>
       <view class="row evlVideo_text">
         <image src="../../../img/mate/videoNum.png" class="nationFlag " mode="" />

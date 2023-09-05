@@ -6,7 +6,7 @@
       <!-- <text class="ft-se-14 clr-999">11143条评论</text> -->
     </view>
     <view class="ft-se-12 clr-pri" bindtap="toDownApp">
-      <van-icon name="edit" color="#B81728" size="16" />
+      <van-icon name="edit" color="#B81728" />
       我要推荐
     </view>
   </view>

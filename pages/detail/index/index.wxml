@@ -109,7 +109,7 @@
         </view>
       </view>
       <view class="tx-ct">
-        <image src="{{imgUrl}}{{item.editorAvatar}}+'?width=50&height=50&webp=1'" mode="aspectFit" style="height: 100rpx;width: 100rpx;border-radius: 50%;" />
+        <commonImage imgUuid="{{item.editorAvatar}}" imgUrl="{{item.editorAvatarUrl}}" mode="aspectFit" styleStr="height: 100rpx;width: 100rpx;border-radius: 50%;" width="50" height="50" ></commonImage >
         <view class="ft-se-12 mg-tp-5"> {{item.editorName}} </view>
         <view class="ft-se-12 clr-999"> {{item.editorTitle}} </view>
       </view>

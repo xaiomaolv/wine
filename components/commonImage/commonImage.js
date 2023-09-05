@@ -80,18 +80,14 @@ Component({
   },
   lifetimes: {
     ready() {
-      // console.log(this.properties.imgUrl, 'this.properties.imgUrl');
-      // console.log(this.data.imgUrl, '00000');
       if (this.properties.imgUrl) {
         this.setData({
           imageUrl: `${this.properties.imgUrl}?width=${this.properties.width}&height=${this.properties.height}&webp=1`
         });
       } else {
-        console.log(this.properties.imgUuid,'this.properties.imgUuid');
         this.setData({
           imageUrl: app.globalData.imgUrl + this.properties.imgUuid
         });
-        // this.loadImageById(this.properties.imgUuid);
       }
     }
   },

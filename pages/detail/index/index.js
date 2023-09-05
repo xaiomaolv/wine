@@ -246,8 +246,8 @@ Page({
         that.getRateCardHeight()
         that.data.timeOut = setTimeout(function () {
           if (that.data.wineEditorNotes.length > 0) {
-            // that.editCard()
-            // that.editMarkdown()
+            that.editCard()
+            that.editMarkdown()
           }
         }, 100)
         // console.log(res, 'wineUUID=139a3308-4617-11ec-8373-066b4187bf04');
