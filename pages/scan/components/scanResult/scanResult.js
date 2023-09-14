@@ -9,7 +9,7 @@ import {
 } from '../../../../api/api.js'
 const app = getApp();
 Component({
-  options:{
+  options: {
     styleIsolation: "apply-shared"
   },
   /**
@@ -178,7 +178,7 @@ Component({
     },
   },
   pageLifetimes: {
-    hide: function() {
+    hide: function () {
       // 页面被隐藏
       // 在这里进行清除计时器的操作
       clearTimeout(this.data.timeOut);

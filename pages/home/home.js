@@ -11,13 +11,14 @@ Page({
     // imglist: [],
     randomImage: '', // 随机图片
     showAgree: false,
+    toScanAgree: false, //是否同意隐私协议
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {},
-    /**
+  /**
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
@@ -29,9 +30,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    // wx.onMemoryWarning(function () {
-    //   console.log('onMemoryWarningReceive')
-    // })
     let that = this
     // 获取本地存储中的数据 
     const imageHomeList = wx.getStorageSync('imageHomeList');
@@ -50,6 +48,20 @@ Page({
     // 获取图片列表
     // that.getAppletImgList()
     that.agreement = that.selectComponent(".agreement");
+  },
+  // 用户同意隐私协议
+  agree(e) {
+    console.log("用户同意隐私授权, 接下来可以调用隐私协议中声明的隐私接口")
+    this.setData({
+      toScanAgree: true
+    })
+  },
+  // 用户拒绝隐私协议
+  disagree(e) {
+    this.setData({
+      toScanAgree: false
+    })
+    console.log("用户拒绝隐私授权, 未同意过的隐私协议中的接口将不能调用")
   },
   getrandomImage(img) {
     // 随机选择一张图片
@@ -76,10 +88,14 @@ Page({
   },
   // 跳转识别酒款
   toScan() {
-    // console.log("111111111111111111111111");
-    wx.navigateTo({
-      url: '/pages/scan/scan',
-    })
+    let that = this
+    if (this.data.toScanAgree) {
+      wx.navigateTo({
+        url: '/pages/scan/scan',
+      })
+    } else {
+      that.selectComponent('#privacyPopup').popUp();
+    }
   },
   // 协议查看
   seeAgreement(e) {

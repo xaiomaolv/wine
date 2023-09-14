@@ -40,5 +40,6 @@
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {},
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "__usePrivacyCheck__": true
 }

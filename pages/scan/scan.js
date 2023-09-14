@@ -326,13 +326,14 @@ Page({
   },
   // 识别结果弹窗 --授权
   handleAuthPhone(e) {
-    // console.log(e,'sssssss');
+    console.log(e,'sssssss');
     var that = this
     that.getUserCode()
     that.getIphoneCode()
     wx.getUserInfo({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
+        console.log(res,'ddfsdf');
         var ency = res.encryptedData;
         var iv = res.iv;
         if (iv == null || ency == null) {
@@ -357,6 +358,7 @@ Page({
           })
           return false
         } else {
+          console.log(e.detail,'e.detail');
           let userPhone = {
             iv: e.detail.detail.iv,
             encryptedData: e.detail.detail.encryptedData,
@@ -367,9 +369,9 @@ Page({
             userPhone: userPhone,
             system: that.data.system
           }
-          // console.log(params, 'params');
+          console.log(params, 'params');
           appletLogin(params).then(res => {
-            // console.log(res, 'appletLogin');
+            console.log(res, 'appletLogin');
             if (res.code == 200) {
               this.setData({
                 cameraImg: ''
@@ -409,6 +411,7 @@ Page({
   // 获取用户信息code
   getUserCode() {
     getApp().login().then(loginRes => {
+      console.log(loginRes,'loginRes');
       this.userInfoCode = loginRes.code
     })
   },

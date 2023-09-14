@@ -65,7 +65,8 @@
       </view>
       <view class="row mg-bt-25 mg-tp-20">
         <block>
-          <button wx:if="{{!isToken}}" size="mini" class="btn_more" round open-type="getPhoneNumber" bindgetphonenumber="getUserProfile">查看更多></button>
+          <!-- 同意隐私协议并授权手机号 -->
+          <button wx:if="{{!isToken}}" size="mini" class="btn_more" round open-type="getPhoneNumber" bindgetphonenumber="getUserProfile" >查看更多></button>
           <button wx:else size="mini" class="btn_more" round bindtap="toDetail">查看更多></button>
           <!-- <button size="mini" class="btn_more" round bindtap="toDetail">查看更多></button> -->
         </block>
