@@ -51,17 +51,14 @@ Page({
   },
   // 用户同意隐私协议
   agree(e) {
-    console.log("用户同意隐私授权, 接下来可以调用隐私协议中声明的隐私接口")
-    this.setData({
-      toScanAgree: true
+    // console.log("用户同意隐私授权, 接下来可以调用隐私协议中声明的隐私接口")
+    wx.navigateTo({
+      url: '/pages/scan/scan',
     })
   },
   // 用户拒绝隐私协议
   disagree(e) {
-    this.setData({
-      toScanAgree: false
-    })
-    console.log("用户拒绝隐私授权, 未同意过的隐私协议中的接口将不能调用")
+    // console.log("用户拒绝隐私授权, 未同意过的隐私协议中的接口将不能调用")
   },
   getrandomImage(img) {
     // 随机选择一张图片
@@ -89,13 +86,7 @@ Page({
   // 跳转识别酒款
   toScan() {
     let that = this
-    if (this.data.toScanAgree) {
-      wx.navigateTo({
-        url: '/pages/scan/scan',
-      })
-    } else {
-      that.selectComponent('#privacyPopup').popUp();
-    }
+    that.selectComponent('#privacyPopup').openPrivacyPopup();
   },
   // 协议查看
   seeAgreement(e) {

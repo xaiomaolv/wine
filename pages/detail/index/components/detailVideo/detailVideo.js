@@ -47,7 +47,7 @@ Component({
         if (res.code == 200) {
           res.data.items.forEach(item => {
             if (item.coverURL.indexOf("file-cdn.vivino.cc")!=-1) {
-              item.coverURL = url +'?width=200&height=300&webp=1'
+              item.coverURL = item.coverURL +'?width=200&height=300&webp=1'
             } else {
               let url = item.coverURL.replace('http', 'https')
               // console.log(url,'url');
