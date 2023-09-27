@@ -1,5 +1,5 @@
 <!--pages/detail/index/components/detailVideo/detailVideo.wxml-->
-<!--视频播放器-->
+<!--视频播放器--评酒视频-->
 <view wx:if="{{videoList.length > 0}}" class="mg-10-15 pd-tp-10">
   <view class="flex-space">
     <view class="clr-5F">评酒视频

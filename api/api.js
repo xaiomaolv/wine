@@ -1,4 +1,3 @@
-const whiteRequest = getApp().whiteRequest
 const request = getApp().request
 // 首页图片
 // miniProgram/api/getAppletImgList

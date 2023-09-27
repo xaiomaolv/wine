@@ -1,4 +1,5 @@
 <!--pages/detail/index/components/logCard/logCard.wxml-->
+<!-- 我的日志 -->
 <wxs module="filters" src="../../../../../utils/filters.wxs"></wxs>
 <view class="logCard" wx:if="{{logList.scanCount > 0 || logList.shareVideoCount > 0}}">
   <view class="mg-10-15 pd-tp-10">我的日志</view>

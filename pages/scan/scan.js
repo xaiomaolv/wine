@@ -233,10 +233,10 @@ Page({
           // 获取scroll-view内容宽度
           // const query = wx.createSelectorQuery().in(this);
           // query.select('.scrolls').boundingClientRect(rect => {
-            // this.setData({
-              // scrollLeft: rect.width
-            //   scrollLeft: 2000
-            // })
+          // this.setData({
+          // scrollLeft: rect.width
+          //   scrollLeft: 2000
+          // })
           // }).exec();
           // this.getImageZip(res.data.items)
         }
@@ -309,7 +309,6 @@ Page({
   },
   // 识别结果弹窗 --跳转详情
   handleToDetail() {
-    // console.log('ttttt');
     let uuid = this.data.wineInfo.uuid
     let scannedPhotoUUID = this.data.scannedPhotoUUID
     let scanDate = app.formatData(new Date())
@@ -341,11 +340,11 @@ Page({
           })
           return false
         } else {
-          var userInfo = {
-            iv: iv,
-            encryptedData: ency,
-            code: that.userInfoCode
-          }
+          that.setData({
+            ['userInfo.iv']:iv,
+            ['userInfo.encryptedData']:ency,
+            ['userInfo.code']:that.userInfoCode
+          })
         }
         if (e.detail.detail.iv == null || e.detail.detail.encryptedData == null) {
           that.getUserCode()
@@ -356,51 +355,58 @@ Page({
           })
           return false
         } else {
-          let userPhone = {
-            iv: e.detail.detail.iv,
-            encryptedData: e.detail.detail.encryptedData,
-            code: that.code
-          }
-          let params = {
-            userInfo: userInfo,
-            userPhone: userPhone,
-            system: that.data.system
-          }
-          appletLogin(params).then(res => {
-            if (res.code == 200) {
-              this.setData({
-                cameraImg: ''
-              })
-              this.scanResult.hideScanResult()
-              // console.log(res.data, 'dacccc');
-              wx.setStorageSync('token', res.data)
-              let uuid = that.data.wineInfo.uuid
-              // let uuid = "139a3308-4617-11ec-8373-066b4187bf04"
-              wx.navigateTo({
-                url: '/pages/detail/index/index?uuid=' + uuid,
-              })
-            } else {
-              wx.showModal({
-                title: '提示',
-                content: res.message,
-                showCancel: false,
-                confirmText: "重新登录",
-                success(res) {
-                  if (res.confirm) {
-                    that.getUserCode()
-                    that.getIphoneCode()
-                    // console.log('用户点击确定')
-                    that.setData({
-                      cameraImg: ''
-                    })
-                    that.scanResult.hideScanResult()
-                  }
-                }
-              })
-            }
+          that.setData({
+            ['userPhone.iv']:e.detail.detail.iv,
+            ['userPhone.encryptedData']:e.detail.detail.encryptedData,
+            ['userPhone.code']:that.code
           })
+          that.appletLogin()
         }
       },
+    })
+  },
+  // 用户登录
+  appletLogin() {
+    var that = this
+    let params = {
+      userInfo: that.data.userInfo,
+      userPhone: that.data.userPhone,
+      system: that.data.system
+    }
+    appletLogin(params).then(res => {
+      if (res.code == 200) {
+        this.setData({
+          cameraImg: ''
+        })
+        this.scanResult.hideScanResult()
+        wx.setStorageSync('token', res.data)
+        let uuid = that.data.wineInfo.uuid
+        wx.navigateTo({
+          url: '/pages/detail/index/index?uuid=' + uuid,
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.message,
+          showCancel: false,
+          confirmText: "重新登录",
+          success(res) {
+            if (res.confirm) {
+              that.getUserCode()
+              that.getIphoneCode()
+              // console.log('用户点击确定')
+              that.setData({
+                cameraImg: '',
+                ['userInfo.code']:that.userInfoCode,
+                ['userPhone.code']:that.code
+              })
+              // 登录失败再次获取code登录
+              that.appletLogin()
+              // that.scanResult.hideScanResult()
+            }
+          }
+        })
+      }
     })
   },
   // 获取用户信息code

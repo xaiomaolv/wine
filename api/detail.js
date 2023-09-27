@@ -1,5 +1,4 @@
 const request = getApp().request
-const whiteRequest = getApp().whiteRequest
 // 扫酒记录
 // /node/api/getUserBehaviorPage?type=1
 export function scanWineInfo() {

@@ -4,7 +4,6 @@ import {
   onPageLoad
 } from './utils/page'
 import request from './utils/request'
-import whiteRequest from './utils/request'
 import util from './utils/util'
 import tools from './utils/tools'
 App({
@@ -64,7 +63,6 @@ App({
   },
   //  挂载全局request，使用app.request 替代wx.request
   ...request,
-  ...whiteRequest,
   // 挂载全局工具类
   ...util,
   ...tools,
@@ -102,14 +100,14 @@ App({
     isLogin: false, // 是否授权登录
     isFirst: false, // 是否第一次使用
     // 图片访问地址
-    imgUrl: 'https://api.dev.vivino.cc/api/files/sc/find-by-uuid?uuid=',  //dev
-    // imgUrl: 'https://static-cdn.vivino.cc/api/files/sc/find-by-uuid?uuid=',  //prod
+    // imgUrl: 'https://api.dev.vivino.cc/api/files/sc/find-by-uuid?uuid=',  //dev
+    imgUrl: 'https://static-cdn.vivino.cc/api/files/sc/find-by-uuid?uuid=',  //prod
     // --------------------------老版本-------------------------
     // imgUrl: 'https://api.dev.vivino.cc/app-api/appapi/api/files/sc/find-by-uuid?uuid=', //老版本dev
     // imgUrl: 'https://api.vivino.cc/app-api/appapi/api/files/sc/find-by-uuid?uuid=',  //老版本prod
     // 扫酒
-    scanWine:'https://api.dev.vivino.cc/app-api/appapi/miniProgram/api/appletScan',  //dev
-    // scanWine: 'https://api.vivino.cc/app-api/appapi/miniProgram/api/appletScan',  //prod
+    // scanWine:'https://api.dev.vivino.cc/app-api/appapi/miniProgram/api/appletScan',  //dev
+    scanWine: 'https://api.vivino.cc/app-api/appapi/miniProgram/api/appletScan',  //prod
     // 扫酒教学视频
     scanWineTip: 'https://api.vivino.cc/app-api/appapi/general/api/getScanStudyVideo'
   }

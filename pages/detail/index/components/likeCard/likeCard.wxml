@@ -1,4 +1,5 @@
 <!--pages/detail/index/components/likeCard/likeCard.wxml-->
+<!-- 你可能还喜欢 -->
 <wxs module="filters" src="../../../../../utils/filters.wxs"></wxs>
 <!-- <view class="likeCard" wx:if="{{detailList.length > 0}}">
   <view class="ft-bd-600 mg-10-15 pd-tb-10 tx-ct ft-se-17">你可能还喜欢</view> -->

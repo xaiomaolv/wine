@@ -16,6 +16,5 @@
 </view>
 <!-- 隐私政策 -->
 <agreement class="agreement" bind:cancel='handCancel' bind:confirm="handConfirm"></agreement>
-<!-- <similarWine></similarWine> -->
 <!-- 隐私授权弹窗 -->
 <privacyPopup id="privacyPopup" frameTitle="温馨提示" bind:disagree="disagree" bind:agree="agree"></privacyPopup>
